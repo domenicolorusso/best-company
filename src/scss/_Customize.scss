@@ -1,38 +1,57 @@
-.Customize{
-    h4{
-        margin-top: 1vw;
+.Customize {
+  h4 {
+    margin-top: 1vw;
+  }
+  color: $primary-red;
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    background: $primary-red;
+    outline: none;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+        box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.235);
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
     }
-    color: $primary-red;
-    .chooseForm{
-        margin-top: 2vw;
-        margin-bottom: 2vw;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
-        div{
-            flex:1;
-            display: flex;
-            flex-direction: column;
-            label{
-                font-size: 14px;
-            }
-            input{
-                width: 70px;
-                height: 25px;
-                font-size: 20px;
-                &:focus{
-                    outline: none;
-                }
-            }
-        }
-    }
-    .installmentWrapper{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+  }
 
+  .chooseForm {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    div {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      label {
+        font-size: 14px;
+      }
+      input {
+        width: 70px;
+        height: 25px;
+        font-size: 20px;
+        &:focus {
+          outline: none;
+        }
+      }
     }
-    
+  }
+  .installmentWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
