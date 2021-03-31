@@ -13,7 +13,7 @@
   cursor: pointer;
   border: 1px solid #eceeef;
   width: 26vw;
-  height: 130px;
+  height: 10vh;
   background-color: #fff;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .NavBar {
-  margin-top: 3vw;
+  margin-top: 2vw;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -130,8 +130,8 @@
 
 .NavBar ul .navLink.active .dot {
   background-color: #b61827;
-  width: 35px;
-  height: 35px;
+  width: 22px;
+  height: 22px;
 }
 
 .NavBar ul p {
@@ -144,15 +144,15 @@
   position: absolute;
   width: 50vw;
   left: 25%;
-  top: 13%;
+  top: 10.5vh;
   z-index: -1;
   height: 3px;
   background-color: #eceeef;
 }
 
 .NavBar .dot {
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background-color: #eceeef;
 }
@@ -174,6 +174,57 @@
 
 .Car .carPrice {
   color: #eb964b;
+}
+
+.Customize {
+  color: #e00d29;
+}
+
+.Customize h4 {
+  margin-top: 1vw;
+}
+
+.Customize .chooseForm {
+  margin-top: 2vw;
+  margin-bottom: 2vw;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Customize .chooseForm div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Customize .chooseForm div label {
+  font-size: 14px;
+}
+
+.Customize .chooseForm div input {
+  width: 70px;
+  height: 25px;
+  font-size: 20px;
+}
+
+.Customize .chooseForm div input:focus {
+  outline: none;
 }
 
 .Customize .installmentWrapper {

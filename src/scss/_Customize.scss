@@ -1,8 +1,38 @@
 .Customize{
+    h4{
+        margin-top: 1vw;
+    }
+    color: $primary-red;
+    .chooseForm{
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        div{
+            flex:1;
+            display: flex;
+            flex-direction: column;
+            label{
+                font-size: 14px;
+            }
+            input{
+                width: 70px;
+                height: 25px;
+                font-size: 20px;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
     .installmentWrapper{
         width: 100%;
         display: flex;
         justify-content: space-between;
-        
+
     }
+    
 }

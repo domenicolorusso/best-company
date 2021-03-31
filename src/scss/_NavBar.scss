@@ -1,5 +1,5 @@
 .NavBar {
-  margin-top: 3vw;
+  margin-top: 2vw;
   width: 100%;
   display: flex;
   align-items: center;
@@ -24,8 +24,8 @@
       }
       &.active .dot {
         background-color: $secondary-red;
-        width: 35px;
-        height: 35px;
+        width: 22px;
+        height: 22px;
       }
     }
     p {
@@ -37,15 +37,15 @@
       position: absolute;
       width: 50vw;
       left: 25%;
-      top: 13%;
+      top: 10.5vh;
       z-index: -1;
       height: 3px;
       background-color: $grey;
     }
   }
   .dot {
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background-color: $grey;
   }

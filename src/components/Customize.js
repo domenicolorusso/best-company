@@ -8,23 +8,29 @@ function Customize() {
         <Car />
         <h4>Scegli</h4>
 
-        <form>
-          <label>importo da richiedere</label>
-          <input type="text" />
-          <label>anticipo</label>
-          <input type="text" />
+        <form className="chooseForm">
+          <div>
+            <label>importo da richiedere</label>
+            <input type="number" placeholder='Euro' min='0'/>
+          </div>
+          <div>
+            <label>anticipo</label>
+            <input type="number" placeholder='Euro' min='0'/>
+          </div>
         </form>
         <h4>Rate</h4>
         <div className="installmentWrapper">
           <button type="button" className="installmentBtn">
             <h3>Ciao</h3>
-            <p>Ciao2</p>
+            <p>24 Mesi</p>
           </button>
           <button type="button" className="installmentBtn">
-            btn2
+            <h3>Ciao</h3>
+            <p>36 Mesi</p>
           </button>
           <button type="button" className="installmentBtn">
-            btn3
+            <h3>Ciao</h3>
+            <p>48 Mesi</p>
           </button>
         </div>
       </div>
