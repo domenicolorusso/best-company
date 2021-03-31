@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
+.generalWrapper {
+  margin: 0 auto;
+  width: 80%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Header {
+  -webkit-box-shadow: 0 0 10px 10px #eceeef;
+          box-shadow: 0 0 10px 10px #eceeef;
+  height: 5vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Header .headerContent {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Header .headerContent__data {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 1rem;
+  border-left: 1px solid black;
+  padding-left: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: ce;
+      -ms-flex-align: ce;
+          align-items: ce;
+  width: 100%;
+  height: 20vh;
+  background-color: black;
+  color: #eceeef;
+  position: absolute;
+  bottom: 0;
 }
+
+.NavBar {
+  margin-top: 3vw;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.NavBar ul {
+  margin: 0 auto;
+  width: 30vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.NavBar ul .navLink {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+  color: black;
+  width: 30px;
+}
+
+.NavBar ul .navLink.active p {
+  font-size: 1.2rem;
+  color: #b61827;
+}
+
+.NavBar ul .navLink.active .dot {
+  background-color: #b61827;
+  width: 35px;
+  height: 35px;
+}
+
+.NavBar ul p {
+  display: inline-block;
+  padding: 10px;
+}
+
+.NavBar ul .navLine {
+  margin: 0 auto;
+  position: absolute;
+  width: 50vw;
+  left: 25%;
+  top: 13%;
+  z-index: -1;
+  height: 3px;
+  background-color: #eceeef;
+}
+
+.NavBar .dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #eceeef;
+}
+/*# sourceMappingURL=App.css.map */

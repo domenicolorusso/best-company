@@ -1,0 +1,52 @@
+.NavBar {
+  margin-top: 3vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  ul {
+    margin: 0 auto;
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+
+    .navLink {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: $black;
+      width: 30px;
+      &.active p {
+        font-size: 1.2rem;
+        color: $secondary-red;
+      }
+      &.active .dot {
+        background-color: $secondary-red;
+        width: 35px;
+        height: 35px;
+      }
+    }
+    p {
+      display: inline-block;
+      padding: 10px;
+    }
+    .navLine {
+      margin: 0 auto;
+      position: absolute;
+      width: 50vw;
+      left: 25%;
+      top: 13%;
+      z-index: -1;
+      height: 3px;
+      background-color: $grey;
+    }
+  }
+  .dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $grey;
+  }
+}
