@@ -9,6 +9,25 @@
   padding: 0;
 }
 
+.installmentBtn {
+  cursor: pointer;
+  border: 1px solid #eceeef;
+  width: 26vw;
+  height: 130px;
+  background-color: #fff;
+}
+
+.installmentBtn:focus {
+  outline: none;
+  background-color: #e00d29;
+  color: #fff;
+}
+
+.installmentBtn:active {
+  background-color: #e00d29;
+  color: #fff;
+}
+
 .Header {
   -webkit-box-shadow: 0 0 10px 10px #eceeef;
           box-shadow: 0 0 10px 10px #eceeef;
@@ -136,5 +155,34 @@
   height: 30px;
   border-radius: 50%;
   background-color: #eceeef;
+}
+
+.Car {
+  margin-top: 2vw;
+  width: 100%;
+  height: 20vh;
+  background-color: #eceeef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Car .carPrice {
+  color: #eb964b;
+}
+
+.Customize .installmentWrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=App.css.map */

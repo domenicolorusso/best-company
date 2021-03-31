@@ -6,12 +6,14 @@ import NavBar from "./components/NavBar";
 import Customize from "./components/Customize";
 import ContactMe from "./components/ContactMe";
 import Recap from "./components/Recap";
+import Car from "./components/Car";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
+       
         <NavBar />
         <Switch>
           <Route path="/customize" exact component={Customize} />

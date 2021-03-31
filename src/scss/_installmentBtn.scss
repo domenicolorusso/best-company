@@ -1,0 +1,16 @@
+.installmentBtn{
+    cursor: pointer;
+    border: 1px solid $grey;
+    width: 26vw;
+    height: 130px;
+    background-color: #fff;
+    &:focus{
+        outline: none;
+        background-color: $primary-red;
+        color: #fff;
+    }
+    &:active{
+        background-color: $primary-red;
+        color: #fff;
+    }
+}
