@@ -311,4 +311,10 @@
 .SingleBtn button:focus {
   outline: none;
 }
+
+.SingleBtn button.isLeft {
+  border: 1px solid black;
+  background-color: #fff;
+  color: black;
+}
 /*# sourceMappingURL=App.css.map */

@@ -4,7 +4,7 @@ function SingleBtn(props) {
   
     return (
         <div className='SingleBtn'>
-            <button type='button'>{props.btnNames}</button>
+            <button type='button' className={props.class}>{props.btnNames}</button>
         </div>
     )
 }
