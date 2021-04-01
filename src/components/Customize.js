@@ -4,7 +4,7 @@ import Car from "./Car";
 import { NavLink } from "react-router-dom";
 function Customize() {
   const [sliderValue, setSliderValue] = useState(5000);
-  const btnName = "RIEPILOGO";
+  const section = "CUSTOMIZE";
   function handldeSlider(e) {
     setSliderValue(e.target.value);
   }
@@ -63,9 +63,8 @@ function Customize() {
           <h3>Rata Finale</h3>
           <p>100euro</p>
         </div>
-        <NavLink to="/recap" className="navLink">
-          <Btn btnName={btnName} />
-        </NavLink>
+
+        <Btn section={section} />
       </div>
     </div>
   );

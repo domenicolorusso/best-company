@@ -284,26 +284,31 @@
 }
 
 .Btn {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.Btn button {
+.SingleBtn button {
   width: 300px;
   height: 40px;
   border-radius: 20px;
   margin-top: 1vw;
+  margin-left: 2vw;
   cursor: pointer;
   background-color: #b61827;
   border: none;
   color: #fff;
 }
 
-.Btn button:focus {
+.SingleBtn button:focus {
   outline: none;
 }
 /*# sourceMappingURL=App.css.map */
