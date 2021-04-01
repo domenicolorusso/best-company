@@ -54,4 +54,15 @@
     display: flex;
     justify-content: space-between;
   }
+  .finalInstallment{
+      color: $black;
+      margin-top: 1vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background-color: $grey;
+      height: 10vh;
+  }
 }

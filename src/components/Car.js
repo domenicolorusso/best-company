@@ -6,7 +6,7 @@ function Car(props) {
       <img src={URL_img} />
       <div>
         <h4>Yaris</h4>
-        <h4 className='carPrice'>{`Prezzo: $${props.price}`}</h4>
+        <h4 className='carPrice'>{`Prezzo: €${props.price}`}</h4>
       </div>
     </div>
   );
