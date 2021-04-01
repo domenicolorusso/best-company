@@ -63,6 +63,7 @@ function Customize() {
           <h3>Rata Finale</h3>
           <p>100euro</p>
         </div>
+        <p>TAN 9,00% TAEG 8,20%</p>
 
         <Btn section={section} />
       </div>

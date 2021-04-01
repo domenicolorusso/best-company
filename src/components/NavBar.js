@@ -2,12 +2,6 @@ import { NavLink } from "react-router-dom";
 
 function NavBar() {
 
-
-  // const buttonChange = {
-  //   color: "rgb(224,13,41)",
-  //   fontSize: "1.2rem",
-  // };
-
   return (
     <div className="NavBar">
       <ul className="navList">
