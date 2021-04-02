@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import Btn from "./Btn";
 import Car from "./Car";
 import RecapDetails from "./RecapDetails";
+import ResultBox from "./ResultBox";
 
 function Recap() {
   const section = "RECAP";
@@ -11,6 +12,21 @@ function Recap() {
     <div className="Recap">
       <div className="generalWrapper">
         <Car />
+        <div className="wrapResultBox">
+          <ResultBox>
+            <p>ANTICIPO</p>
+            <p>€0</p>
+          </ResultBox>
+          <ResultBox>
+            <p>35 RATE DA</p>
+            <p>€300</p>
+          </ResultBox>
+        </div>
+        <ResultBox>
+        <p>Rata Finale</p>
+          <p>100€</p>
+        </ResultBox>
+
         <RecapDetails />
         <Btn section={section} />
       </div>

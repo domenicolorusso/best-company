@@ -1,0 +1,27 @@
+.ContactForm{
+    h4{
+        color: $primary-red;
+        
+    }
+    form{
+        width: 100%;
+        .formField{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2vh;
+            margin: 2vh 0;
+            border: 1px solid $grey;
+            label{
+                flex: 1;
+            }
+            input{
+                background-color: $grey;
+                border: none;
+                flex: 1;
+                padding: 0.5vh 0;
+                border-radius: 3px;
+            }
+        }
+    }
+}

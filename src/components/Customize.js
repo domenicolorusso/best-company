@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import Btn from "./Btn";
 import Car from "./Car";
-import { NavLink } from "react-router-dom";
+import ResultBox from "./ResultBox";
+
 function Customize() {
   const [sliderValue, setSliderValue] = useState(5000);
+
   const section = "CUSTOMIZE";
+
   function handldeSlider(e) {
     setSliderValue(e.target.value);
   }
+  //-------------DA FARE: REFACTORING -> + COMPONENTI------------
   return (
     <div className="Customize">
       <div className="generalWrapper">
@@ -59,10 +63,11 @@ function Customize() {
             <p>48 Mesi</p>
           </button>
         </div>
-        <div className="finalInstallment">
-          <h3>Rata Finale</h3>
-          <p>100euro</p>
-        </div>
+        <ResultBox>
+          <p>Rata Finale</p>
+          <p>100€</p>
+        </ResultBox>
+
         <p>TAN 9,00% TAEG 8,20%</p>
 
         <Btn section={section} />

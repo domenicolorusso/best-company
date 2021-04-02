@@ -176,12 +176,9 @@
   color: #eb964b;
 }
 
-.Customize {
-  color: #e00d29;
-}
-
-.Customize h4 {
-  margin-top: 1vw;
+.Car h4 {
+  margin-top: 0;
+  color: black;
 }
 
 .Customize .slider {
@@ -222,6 +219,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: #e00d29;
 }
 
 .Customize .chooseForm div {
@@ -245,6 +243,7 @@
   width: 70px;
   height: 25px;
   font-size: 20px;
+  color: #e00d29;
 }
 
 .Customize .chooseForm div input:focus {
@@ -287,9 +286,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -370,5 +369,88 @@
           align-items: center;
   border-bottom: 1px solid #eceeef;
   padding: 1vh 0;
+}
+
+.ResultBox {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1vh;
+  height: 8vh;
+  background-color: #eceeef;
+}
+
+.Recap .wrapResultBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ContactForm h4 {
+  color: #e00d29;
+}
+
+.ContactForm form {
+  width: 100%;
+}
+
+.ContactForm form .formField {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2vh;
+  margin: 2vh 0;
+  border: 1px solid #eceeef;
+}
+
+.ContactForm form .formField label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.ContactForm form .formField input {
+  background-color: #eceeef;
+  border: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0.5vh 0;
+  border-radius: 3px;
+}
+
+.ContactMe .infoPrivacy h4 {
+  background-color: #eceeef;
+  margin: 2vh 0;
+  padding: 1vh;
+}
+
+.ContactMe .infoPrivacy p {
+  margin-left: 1vh;
+}
+
+.ContactMe .infoPrivacy h5 {
+  margin: 1vh 0;
+  margin-left: 1vh;
 }
 /*# sourceMappingURL=App.css.map */
