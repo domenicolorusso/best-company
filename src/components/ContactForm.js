@@ -7,24 +7,24 @@ function ContactForm() {
       <p>Inserisci i tuoi dati e sarai contattato al piu presto</p>
       <form>
         <div className="formField">
-          <label>Nome*</label>
-          <input type="text" required />
+          <label htmlFor='name'>Nome*</label>
+          <input type="text" id='name' required />
         </div>
         <div className="formField">
-          <label>Cognome*</label>
-          <input type="text" required />
+          <label htmlFor='surname'>Cognome*</label>
+          <input type="text" id='surname' required />
         </div>
         <div className="formField">
-          <label>Cellulare*</label>
-          <input type="text" required />
+          <label htmlFor='telNumber'>Cellulare*</label>
+          <input type="text" id='telNumber' required />
         </div>
         <div className="formField">
-          <label>Indirizzo E-mail*</label>
-          <input type="email" required />
+          <label htmlFor='email'>Indirizzo E-mail*</label>
+          <input type="email" id='email' required />
         </div>
         <div className="formField">
-          <label>Conferma E-mail*</label>
-          <input type="email" required />
+          <label htmlFor='confirmEmail'>Conferma E-mail*</label>
+          <input type="email" id='confirmEmail' required />
         </div>
       </form>
       <p>*campi obbligatori</p>
