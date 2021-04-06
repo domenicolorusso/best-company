@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import Btn from "./Btn";
-import Car from "./Car";
-import RecapDetails from "./RecapDetails";
-import ResultBox from "./ResultBox";
+import Btn from "../Btn/Btn";
+import Car from "../Car/Car";
+import RecapDetails from "../Recap/RecapDetails.js";
+import ResultBox from "../ResultBox";
 
 function Recap() {
   const section = "RECAP";

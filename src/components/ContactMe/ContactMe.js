@@ -1,5 +1,5 @@
 import React from "react";
-import Btn from "./Btn";
+import Btn from "../Btn/Btn";
 import ContactForm from "./ContactForm";
 function ContactMe() {
   const section = "CONTACTME";

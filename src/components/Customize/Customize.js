@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Btn from "./Btn";
-import Car from "./Car";
-import ResultBox from "./ResultBox";
+import Btn from "../Btn/Btn";
+import Car from "../Car/Car";
+import ResultBox from "../ResultBox";
 
 function Customize() {
   const [sliderValue, setSliderValue] = useState(5000);
