@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 
 
-function Btn({section, isOff, setIsOff}) {
+function Btn({section, isOff}) {
  
   const btnNames = {
     personalizza: "RIEPILOGO",
@@ -43,7 +43,7 @@ function Btn({section, isOff, setIsOff}) {
             <SingleBtn btnNames={btnNames.contattami.riepilogo} class={'isLeft'}/>
           </NavLink>
           <NavLink to="/" className="navLink">
-            <SingleBtn btnNames={btnNames.contattami.invia} isOff={isOff} setIsOff={setIsOff} />
+            <SingleBtn btnNames={btnNames.contattami.invia} isOff={isOff}/>
           </NavLink>
         </>
       )}

@@ -4,6 +4,7 @@ import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
+import { takeAmount } from '../../store/features/install/installActions'
 function Customize() {
 
 
@@ -40,7 +41,7 @@ console.log(installValues)
               type="number"
               placeholder="Euro"
               min="0"
-              value={askValue}
+              value={installValues.price}
             />
           </div>
           <div>

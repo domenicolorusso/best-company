@@ -2,10 +2,13 @@ import {    TAKE_AMOUNT, CALCULATE_ADVANCE, SELECT_INSTALLMENT, CALCULATE_FINALI
 
 const installment = [24, 36, 48]; 
 
+const price = 15000;
+
+
 
 const installmentState = {
-    price: 15000,
-    amount: 0,
+    price,
+    amount: price,
     advance: 0,
     installments: installment[0],
     finalInstallment: 0
@@ -22,7 +25,7 @@ export default function installReducer( state = installmentState, action){
      case TAKE_AMOUNT:
          return{
              ...state,
-             amount: action.playload
+             amount: action.payload
          }
      case CALCULATE_ADVANCE:
          return{
@@ -38,7 +41,7 @@ export default function installReducer( state = installmentState, action){
      case CALCULATE_FINALINSTALLMEMT:
          return{
              ...state,
-             finalInstallment: action.playload
+             finalInstallment: action.payload
          }
      default:
          return state

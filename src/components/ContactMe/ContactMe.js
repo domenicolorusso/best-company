@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Btn from "../Btn/Btn";
 import ContactForm from "./ContactForm";
 import {
@@ -11,7 +11,17 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 function ContactMe() {
-  const [isOff, setIsOff] = useState(false);
+  useEffect(() => {
+    if (isSubmitted()) {
+      console.log("active");
+      setIsOff(false);
+    } else {
+      console.log("disabled");
+      setIsOff(true);
+    }
+  });
+
+  const [isOff, setIsOff] = useState(true);
   // const [userData, setUserData] = useState({});
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);
@@ -40,6 +50,21 @@ function ContactMe() {
         dispatch(takeConfirmEmail(e.target.value));
         break;
     }
+
+    // if (
+    //   userValues.name &&
+    //   userValues.surname &&
+    //   userValues.telNumber &&
+    //   userValues.email &&
+    //   userValues.confirmEmail &&
+    //   userValues.email == userValues.confirmEmail
+    // ){
+    //   console.log('active')
+    //   setIsOff(false)
+    // } else {
+    //   console.log('disabled')
+    //   setIsOff(true)
+    // }
   };
   //da sviluppare meglio
   const isSubmitted = () =>
@@ -54,7 +79,7 @@ function ContactMe() {
     e.preventDefault();
     if (isSubmitted()) {
       console.log("submitted");
-      alert(JSON.stringify(userValues))
+      alert(JSON.stringify(userValues));
     } else {
       alert("error");
     }

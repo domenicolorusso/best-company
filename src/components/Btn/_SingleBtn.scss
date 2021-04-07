@@ -12,6 +12,11 @@
     &:focus {
       outline: none;
     }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $grey!important;
+    }
+
     &.isLeft{
         border:1px solid $black;
         background-color: #fff;
