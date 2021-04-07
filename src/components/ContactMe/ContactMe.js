@@ -10,11 +10,22 @@ function ContactMe() {
     setUserData( user => ({...user, [e.target.name]: e.target.value}))
     console.log(userData)
   }
+
+ const isSubmitted = () => (
+  userData.name && userData.surname && userData.telNumber && userData.email && userData.confirmEmail && (userData.email === userData.confirmEmail)
+ )
+
+  const handleSubmit = () => {
+    console.log('submitted')
+    if(isSubmitted()){
+      alert(userData)
+    } else {alert('error')}
+  }
   const section = "CONTACTME";
   return (
     <div className="ContactMe">
       <div className="generalWrapper">
-        <ContactForm handleFormInput={handleFormInput} userData={userData}/>
+        <ContactForm handleFormInput={handleFormInput} userData={userData} handleSubmit={handleSubmit}/>
         <div className="infoPrivacy">
           <h4>INFORMATIVA PRIVACY</h4>
           <p>
@@ -26,7 +37,7 @@ function ContactMe() {
             <a href="#">TMI</a> e di <a href="#">TFSI</a>{" "}
           </h5>
         </div>
-        <Btn section={section} />
+        <Btn section={section}/>
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ import Recap from "./components/Recap/Recap";
 import Car from "./components/Car/Car";
 
 function App() {
+  const totVal = 15000
   return (
     <Router>
       <div className="App">

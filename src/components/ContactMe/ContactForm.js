@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 
-function ContactForm({handleFormInput}) {
+function ContactForm({handleFormInput, handleSubmit}) {
 
   const [validate, setValidate] = useState(false)
   return (
     <div className="ContactForm">
       <h4>Invia Richesta</h4>
       <p>Inserisci i tuoi dati e sarai contattato al piu presto</p>
-      <form>
+      <form onSubmit={handleSubmit()}>
         <div className="formField">
           <label htmlFor='name'>Nome*</label>
           <input type="text" id='name' name='name' onChange={handleFormInput}/>

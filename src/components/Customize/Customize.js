@@ -4,18 +4,20 @@ import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
 
 function Customize() {
-  const [sliderValue, setSliderValue] = useState(5000);
-
+  const totVal = 15000
+  const [askValue, setAskValue] = useState(totVal);
+ const [anticipo, setAnticipo] = useState(0)
   const section = "CUSTOMIZE";
 
   function handldeSlider(e) {
-    setSliderValue(e.target.value);
+    setAskValue(e.target.value);
+    setAnticipo(totVal-askValue)
   }
   //-------------DA FARE: REFACTORING -> + COMPONENTI------------
   return (
     <div className="Customize">
       <div className="generalWrapper">
-        <Car />
+        <Car totVal={totVal}/>
 
         <h4>Scegli</h4>
 
@@ -26,12 +28,12 @@ function Customize() {
               type="number"
               placeholder="Euro"
               min="0"
-              value={sliderValue}
+              value={askValue}
             />
           </div>
           <div>
             <label>anticipo</label>
-            <input type="number" placeholder="Euro" min="0" />
+            <input type="number" placeholder="Euro" min="0" value={anticipo} />
           </div>
         </form>
 
@@ -39,8 +41,8 @@ function Customize() {
           <input
             type="range"
             min="1"
-            max="10000"
-            value={sliderValue}
+            max={totVal}
+            value={askValue}
             className="slider"
             id="myRange"
             onChange={(e) => handldeSlider(e)}
