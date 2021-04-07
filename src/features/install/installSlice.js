@@ -34,6 +34,7 @@ export default function installReducer( state = InstallmentState, action){
              ...state,
              installments: installment[action.playload]
          }
+         //da capire come calcolare
      case CALCULATE_FINALINSTALLMEMT:
          return{
              ...state,
