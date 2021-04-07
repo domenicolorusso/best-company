@@ -25,7 +25,7 @@ console.log(installValues)
     setAskValue(e.target.value);
     setAnticipo(totVal-askValue)
   }
-  //-------------DA FARE: REFACTORING -> + COMPONENTI------------
+
   return (
     <div className="Customize">
       <div className="generalWrapper">

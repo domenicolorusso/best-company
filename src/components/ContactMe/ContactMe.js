@@ -11,11 +11,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 function ContactMe() {
-  const [userData, setUserData] = useState({});
+  // const [userData, setUserData] = useState({});
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);
   // const [userData, setUserData ] = useState({})
 console.log(userValues)
+
   const handleFormInput = (e) => {
     // dispatch(takeName(e.target.value))
     // setUserData( user => ({...user, [e.target.name]: e.target.value}))
@@ -24,17 +25,22 @@ console.log(userValues)
     switch (e.target.name) {
       case "name":
         dispatch(takeName(e.target.value));
+        break;
       case "surname":
         dispatch(takeSurname(e.target.value));
+        break;
       case "telNumber":
         dispatch(takeTel(e.target.value));
+        break;
       case "email":
         dispatch(takeEmail(e.target.value));
+        break;
       case "confirmEmail":
         dispatch(takeConfirmEmail(e.target.value));
+        break;
     }
   };
-
+//da sviluppare meglio
   const isSubmitted = () =>
     userValues.name &&
     userValues.surname &&
@@ -58,7 +64,7 @@ console.log(userValues)
       <div className="generalWrapper">
         <ContactForm
           handleFormInput={handleFormInput}
-          userData={userData}
+          // userData={userData}
           handleSubmit={handleSubmit}
         />
         <div className="infoPrivacy">
