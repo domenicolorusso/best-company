@@ -4,14 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import store  from './store/store'
+import store from './store/store'
 
-// import  store  from './store.js'
-
-
-
-
-//inserire rootReducer nel create store, rootReducer e' un insieme di reducer
 
 ReactDOM.render(
   <React.StrictMode>

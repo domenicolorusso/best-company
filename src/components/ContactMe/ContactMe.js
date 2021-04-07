@@ -1,31 +1,66 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Btn from "../Btn/Btn";
 import ContactForm from "./ContactForm";
+import {
+  takeName,
+  takeSurname,
+  takeTel,
+  takeEmail,
+  takeConfirmEmail,
+} from "../../store/features/user/userActions";
+import { useDispatch, useSelector } from "react-redux";
 
 function ContactMe() {
-  const [userData, setUserData ] = useState({})
-
-
+  const [userData, setUserData] = useState({});
+  const dispatch = useDispatch();
+  const userValues = useSelector((state) => state.user);
+  // const [userData, setUserData ] = useState({})
+console.log(userValues)
   const handleFormInput = (e) => {
-    setUserData( user => ({...user, [e.target.name]: e.target.value}))
-    console.log(userData)
-  }
+    // dispatch(takeName(e.target.value))
+    // setUserData( user => ({...user, [e.target.name]: e.target.value}))
+    // console.log(userValues)
 
- const isSubmitted = () => (
-  userData.name && userData.surname && userData.telNumber && userData.email && userData.confirmEmail && (userData.email === userData.confirmEmail)
- )
+    switch (e.target.name) {
+      case "name":
+        dispatch(takeName(e.target.value));
+      case "surname":
+        dispatch(takeSurname(e.target.value));
+      case "telNumber":
+        dispatch(takeTel(e.target.value));
+      case "email":
+        dispatch(takeEmail(e.target.value));
+      case "confirmEmail":
+        dispatch(takeConfirmEmail(e.target.value));
+    }
+  };
+
+  const isSubmitted = () =>
+    userValues.name &&
+    userValues.surname &&
+    userValues.telNumber &&
+    userValues.email &&
+    userValues.confirmEmail &&
+    userValues.email == userValues.confirmEmail;
 
   const handleSubmit = () => {
-    console.log('submitted')
-    if(isSubmitted()){
-      alert(userData)
-    } else {alert('error')}
-  }
+    
+    if (isSubmitted()) {
+      console.log("submitted");
+      alert(userValues);
+    } else {
+      alert("error");
+    }
+  };
   const section = "CONTACTME";
   return (
     <div className="ContactMe">
       <div className="generalWrapper">
-        <ContactForm handleFormInput={handleFormInput} userData={userData} handleSubmit={handleSubmit}/>
+        <ContactForm
+          handleFormInput={handleFormInput}
+          userData={userData}
+          handleSubmit={handleSubmit}
+        />
         <div className="infoPrivacy">
           <h4>INFORMATIVA PRIVACY</h4>
           <p>
@@ -37,7 +72,7 @@ function ContactMe() {
             <a href="#">TMI</a> e di <a href="#">TFSI</a>{" "}
           </h5>
         </div>
-        <Btn section={section}/>
+        <Btn section={section} />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 
-import {  TAKE_NAME, TAKE_SURNAME, TAKE_TEL, TAKE_EMAIL, TAKE_CONFIRMEMAIL   } from '../../actions/types'
+import {  TAKE_NAME, TAKE_SURNAME, TAKE_TEL, TAKE_EMAIL, TAKE_CONFIRMEMAIL   } from '../../actionTypes'
 
 
 
@@ -18,27 +18,27 @@ export default function userReducer( state = userState, action){
      case TAKE_NAME:
          return{
              ...state,
-             name: action.playload
+             name: action.payload
          }
      case TAKE_SURNAME:
          return{
              ...state,
-             surname: action.playload
+             surname: action.payload
          }
      case TAKE_TEL:
          return{
              ...state,
-             telNumber: action.playload
+             telNumber: action.payload
          }
      case TAKE_EMAIL:
          return{
              ...state,
-             email: action.playload
+             email: action.payload
          }
      case TAKE_CONFIRMEMAIL:
          return{
              ...state,
-             confirmEmail: action.playload
+             confirmEmail: action.payload
          }
      default:
          return state

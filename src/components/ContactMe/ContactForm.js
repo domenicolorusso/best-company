@@ -1,13 +1,23 @@
 import React, {useState} from "react";
+// import { takeName } from '../../store/features/user/userActions';
+// import { useDispatch, useSelector} from 'react-redux';
+
+
+
 
 function ContactForm({handleFormInput, handleSubmit}) {
+  // const [userData, setUserData ] = useState({})
+  // const dispatch = useDispatch();
+  // const userValues = useSelector( state => state.user )
 
+
+  // console.log(userValues)
   const [validate, setValidate] = useState(false)
   return (
     <div className="ContactForm">
       <h4>Invia Richesta</h4>
       <p>Inserisci i tuoi dati e sarai contattato al piu presto</p>
-      <form onSubmit={handleSubmit()}>
+      <form onSubmit={handleSubmit}>
         <div className="formField">
           <label htmlFor='name'>Nome*</label>
           <input type="text" id='name' name='name' onChange={handleFormInput}/>
@@ -28,6 +38,7 @@ function ContactForm({handleFormInput, handleSubmit}) {
           <label htmlFor='confirmEmail'>Conferma E-mail*</label>
           <input type="email" id='confirmEmail' name='confirmEmail' onChange={handleFormInput}/>
         </div>
+        <button>Clicca</button>
       </form>
       <p>*campi obbligatori</p>
     </div>

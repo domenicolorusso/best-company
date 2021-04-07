@@ -2,12 +2,24 @@ import React, { useState } from "react";
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
-
+import { useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 function Customize() {
+
+
+const dispatch = useDispatch()
+
+const installValues = useSelector(state=>state.install)
+console.log(installValues)
+
+
   const totVal = 15000
   const [askValue, setAskValue] = useState(totVal);
  const [anticipo, setAnticipo] = useState(0)
   const section = "CUSTOMIZE";
+
+
+
 
   function handldeSlider(e) {
     setAskValue(e.target.value);
@@ -17,7 +29,7 @@ function Customize() {
   return (
     <div className="Customize">
       <div className="generalWrapper">
-        <Car totVal={totVal}/>
+        <Car/>
 
         <h4>Scegli</h4>
 

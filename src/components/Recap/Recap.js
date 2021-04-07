@@ -11,7 +11,7 @@ function Recap() {
   return (
     <div className="Recap">
       <div className="generalWrapper">
-        <Car />
+        <Car/>
         <div className="wrapResultBox">
           <ResultBox>
             <p>ANTICIPO</p>
