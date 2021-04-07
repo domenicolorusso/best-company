@@ -11,11 +11,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 function ContactMe() {
+  const [isOff, setIsOff] = useState(false);
   // const [userData, setUserData] = useState({});
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);
   // const [userData, setUserData ] = useState({})
-console.log(userValues)
+  console.log(userValues);
 
   const handleFormInput = (e) => {
     // dispatch(takeName(e.target.value))
@@ -40,7 +41,7 @@ console.log(userValues)
         break;
     }
   };
-//da sviluppare meglio
+  //da sviluppare meglio
   const isSubmitted = () =>
     userValues.name &&
     userValues.surname &&
@@ -49,11 +50,11 @@ console.log(userValues)
     userValues.confirmEmail &&
     userValues.email == userValues.confirmEmail;
 
-  const handleSubmit = () => {
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (isSubmitted()) {
       console.log("submitted");
-      alert(userValues);
+      alert(JSON.stringify(userValues))
     } else {
       alert("error");
     }
@@ -65,6 +66,7 @@ console.log(userValues)
         <ContactForm
           handleFormInput={handleFormInput}
           // userData={userData}
+          userValues={userValues}
           handleSubmit={handleSubmit}
         />
         <div className="infoPrivacy">
@@ -78,7 +80,7 @@ console.log(userValues)
             <a href="#">TMI</a> e di <a href="#">TFSI</a>{" "}
           </h5>
         </div>
-        <Btn section={section} />
+        <Btn section={section} isOff={isOff} />
       </div>
     </div>
   );
