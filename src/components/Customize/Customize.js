@@ -2,29 +2,22 @@ import React, { useEffect } from "react";
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   takeAmount,
   calcAdvance,
   selectInstallment,
 } from "../../store/features/install/installActions";
 function Customize() {
-
   const dispatch = useDispatch();
   const installValues = useSelector((state) => state.install);
   console.log(installValues);
   const section = "CUSTOMIZE";
 
-
-
-
   function handldeAdvanceCalculation(e) {
     dispatch(takeAmount(parseInt(e.target.value)));
     dispatch(calcAdvance(installValues.price, e.target.value));
   }
-
-
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
@@ -45,7 +38,7 @@ function Customize() {
               placeholder="Euro"
               min="0"
               value={installValues.amount}
-             
+
               // onChange={()=> installValues.amount}
             />
           </div>
@@ -74,23 +67,23 @@ function Customize() {
           />
         </div>
 
-
-
         <h4>Rate</h4>
         <div className="installmentWrapper">
           <button
             type="button"
-            
-            className={`installmentBtn ${installValues.installments===24 ? 'isActive' : ''}`}
+            className={`installmentBtn ${
+              installValues.installments === 24 ? "isActive" : ""
+            }`}
             onClick={() => handleMonthsInstallment(0)}
           >
-            
             <h3>€408</h3>
             <p>24 Mesi</p>
           </button>
           <button
             type="button"
-            className={`installmentBtn ${installValues.installments===36 ? 'isActive' : ''}`}
+            className={`installmentBtn ${
+              installValues.installments === 36 ? "isActive" : ""
+            }`}
             onClick={() => handleMonthsInstallment(1)}
           >
             <h3>€300</h3>
@@ -98,7 +91,9 @@ function Customize() {
           </button>
           <button
             type="button"
-            className={`installmentBtn ${installValues.installments===48 ? 'isActive' : ''}`}
+            className={`installmentBtn ${
+              installValues.installments === 48 ? "isActive" : ""
+            }`}
             onClick={() => handleMonthsInstallment(2)}
           >
             <h3>€246</h3>
