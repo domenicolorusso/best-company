@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Btn from "../Btn/Btn";
+import React, { useState, useEffect} from "react";
 import ContactForm from "./ContactForm";
 import {
   takeName,
@@ -11,22 +10,14 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 function ContactMe() {
-  useEffect(() => {
-    if (isSubmitted()) {
-      console.log("active");
-      setIsOff(false);
-    } else {
-      console.log("disabled");
-      setIsOff(true);
-    }
-  });
-
   const [isOff, setIsOff] = useState(true);
-  // const [userData, setUserData] = useState({});
+  
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);
   // const [userData, setUserData ] = useState({})
   console.log(userValues);
+
+  // const [userData, setUserData] = useState({});
 
   const handleFormInput = (e) => {
     // dispatch(takeName(e.target.value))
@@ -67,17 +58,17 @@ function ContactMe() {
     // }
   };
   //da sviluppare meglio
-  const isSubmitted = () =>
+  const isValidForm = () =>
     userValues.name &&
     userValues.surname &&
     userValues.telNumber &&
     userValues.email &&
     userValues.confirmEmail &&
-    userValues.email == userValues.confirmEmail;
+    userValues.email === userValues.confirmEmail;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isSubmitted()) {
+    if (isValidForm()) {
       console.log("submitted");
       alert(JSON.stringify(userValues));
     } else {
@@ -85,16 +76,27 @@ function ContactMe() {
     }
   };
   const section = "CONTACTME";
+  useEffect(() => {
+    if (isValidForm()) {
+      console.log("active");
+      setIsOff(false);
+    } else {
+      console.log("disabled");
+      setIsOff(true);
+    }
+  });
   return (
     <div className="ContactMe">
       <div className="generalWrapper">
         <ContactForm
           handleFormInput={handleFormInput}
-          // userData={userData}
           userValues={userValues}
           handleSubmit={handleSubmit}
+          isOff={isOff}
+          setIsOff={setIsOff}
+          section={section}
         />
-        <div className="infoPrivacy">
+        {/* <div className="infoPrivacy">
           <h4>INFORMATIVA PRIVACY</h4>
           <p>
             Ti informiamo che il Calcolatore Finanziario e' di proprieta' di
@@ -105,7 +107,7 @@ function ContactMe() {
             <a href="#">TMI</a> e di <a href="#">TFSI</a>{" "}
           </h5>
         </div>
-        <Btn section={section} isOff={isOff} />
+        <Btn section={section} isOff={isOff} /> */}
       </div>
     </div>
   );

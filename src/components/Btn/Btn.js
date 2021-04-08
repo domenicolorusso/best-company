@@ -42,9 +42,9 @@ function Btn({section, isOff}) {
           <NavLink to="/recap" className="navLink">
             <SingleBtn btnNames={btnNames.contattami.riepilogo} class={'isLeft'}/>
           </NavLink>
-          <NavLink to="/" className="navLink">
+          {/* <NavLink to="/" className="navLink"> */}
             <SingleBtn btnNames={btnNames.contattami.invia} isOff={isOff}/>
-          </NavLink>
+          {/* </NavLink> */}
         </>
       )}
     </div>

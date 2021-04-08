@@ -1,6 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import RecapDetails from "../Recap/RecapDetails.js";

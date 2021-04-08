@@ -8,11 +8,11 @@ export const takeAmount = (amount) => {
         payload: amount
     }
 }
-// export const calcAdvance = () => {
-//     return {
-//         type: CALCULATE_ADVANCE,
-//     }
-// }
+export const calcAdvance = () => {
+    return {
+        type: CALCULATE_ADVANCE,
+    }
+}
 // export const takeTel = (text) => {
 //     return {
 //         type: TAKE_TEL,

@@ -4,9 +4,8 @@ import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { takeAmount } from '../../store/features/install/installActions'
+import { takeAmount, calcAdvance } from '../../store/features/install/installActions'
 function Customize() {
-
 
 const dispatch = useDispatch()
 
@@ -23,8 +22,10 @@ console.log(installValues)
 
 
   function handldeSlider(e) {
-    setAskValue(e.target.value);
-    setAnticipo(totVal-askValue)
+    dispatch(takeAmount(e.target.value))
+    dispatch(calcAdvance(installValues.price, e.target.value))
+    // setAskValue(e.target.value);
+    // setAnticipo(totVal-askValue)
   }
 
   return (
@@ -36,17 +37,18 @@ console.log(installValues)
 
         <form className="chooseForm">
           <div>
-            <label>importo da richiedere</label>
+            <label htmlFor='amount'>importo da richiedere</label>
             <input
+              id='amount'
               type="number"
               placeholder="Euro"
               min="0"
-              value={installValues.price}
+              value={installValues.amount}
             />
           </div>
           <div>
-            <label>anticipo</label>
-            <input type="number" placeholder="Euro" min="0" value={anticipo} />
+            <label htmlFor='advance'>anticipo</label>
+            <input id='advance' type="number" placeholder="Euro" min="0" value={installValues.advance} />
           </div>
         </form>
 
@@ -54,8 +56,8 @@ console.log(installValues)
           <input
             type="range"
             min="1"
-            max={totVal}
-            value={askValue}
+            max={installValues.price}
+            value={installValues.amount}
             className="slider"
             id="myRange"
             onChange={(e) => handldeSlider(e)}

@@ -9,12 +9,12 @@
     background-color: $secondary-red;
     border: none;
     color: #fff;
+    &.isOff {
+      cursor: not-allowed;
+      background-color: #fff;
+    }
     &:focus {
       outline: none;
-    }
-    &:disabled {
-      cursor: not-allowed;
-      background-color: $grey!important;
     }
 
     &.isLeft{
