@@ -3,22 +3,23 @@
 @import './scss/reset';
 
 
+
+
+
+
+@import './components/Header/Header';
+@import './components/Footer/Footer';
+@import './components/NavBar/NavBar';
+@import './components/Car/Car.scss';
+@import './components/Customize/Customize';
+@import './components/Btn/Btn';
+@import './components/Recap/RecapDetails';
+@import './components/Recap/DetailsTable';
+@import './components/ResultBox';
+@import './components/Recap/Recap';
+@import './components/ContactMe/ContactForm';
+@import './components/ContactMe/ContactMe';
+
+@import './components/Btn/SingleBtn';
+
 @import './scss/installmentBtn';
-
-
-
-
-@import './scss/Header';
-@import './scss/Footer';
-@import './scss/NavBar';
-@import './components/Car/_Car.scss';
-@import './scss/Customize';
-@import './scss/Btn';
-@import './scss/RecapDetails';
-@import './scss/DetailsTable';
-@import './scss/ResultBox';
-@import './scss/Recap';
-@import './scss/ContactForm';
-@import './scss/ContactMe';
-
-@import './scss/SingleBtn';

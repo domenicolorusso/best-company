@@ -1,16 +1,21 @@
-.installmentBtn{
-    cursor: pointer;
-    border: 1px solid $grey;
-    width: 26vw;
-    height: 10vh;
-    background-color: #fff;
-    &:focus{
-        outline: none;
+    .installmentBtn {
+      cursor: pointer;
+      border: 1px solid $grey;
+      width: 26vw;
+      height: 10vh;
+      background-color: #fff;
+      &:focus{
+          outline: none;
+      }
+      &.isActive {
+        cursor: pointer;
+        border: 1px solid $grey;
+        width: 26vw;
+        height: 10vh;
         background-color: $primary-red;
         color: #fff;
-    }
-    &:active{
-        background-color: $primary-red;
-        color: #fff;
-    }
-}
+      }
+  }
+    
+    
+    

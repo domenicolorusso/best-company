@@ -1,4 +1,4 @@
-import {    TAKE_AMOUNT, CALCULATE_ADVANCE, SELECT_INSTALLMENT, CALCULATE_FINALINSTALLMEMT } from '../../actionTypes'
+import {    TAKE_AMOUNT, CALCULATE_ADVANCE, SELECT_INSTALLMENT, CALCULATE_FINALINSTALLMENT } from '../../actionTypes'
 
 const installment = [24, 36, 48]; 
 
@@ -38,7 +38,7 @@ export default function installReducer( state = installmentState, action){
              installments: installment[action.payload]
          }
          //da capire come calcolare
-     case CALCULATE_FINALINSTALLMEMT:
+     case CALCULATE_FINALINSTALLMENT:
          return{
              ...state,
              finalInstallment: action.payload

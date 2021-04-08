@@ -9,25 +9,6 @@
   padding: 0;
 }
 
-.installmentBtn {
-  cursor: pointer;
-  border: 1px solid #eceeef;
-  width: 26vw;
-  height: 10vh;
-  background-color: #fff;
-}
-
-.installmentBtn:focus {
-  outline: none;
-  background-color: #e00d29;
-  color: #fff;
-}
-
-.installmentBtn:active {
-  background-color: #e00d29;
-  color: #fff;
-}
-
 .Header {
   -webkit-box-shadow: 0 0 10px 10px #eceeef;
           box-shadow: 0 0 10px 10px #eceeef;
@@ -93,7 +74,7 @@
           align-items: center;
 }
 
-.NavBar ul {
+.NavBar .navList {
   margin: 0 auto;
   width: 30vw;
   display: -webkit-box;
@@ -104,7 +85,7 @@
           justify-content: space-between;
 }
 
-.NavBar ul .navLink {
+.NavBar .navList .navLink {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,24 +104,24 @@
   width: 30px;
 }
 
-.NavBar ul .navLink.active p {
+.NavBar .navList .navLink.active p {
   font-size: 1rem;
   color: #b61827;
 }
 
-.NavBar ul .navLink.active .dot {
+.NavBar .navList .navLink.active .dot {
   background-color: #b61827;
   width: 22px;
   height: 22px;
 }
 
-.NavBar ul p {
+.NavBar .navList p {
   font-size: 14px;
   display: inline-block;
   padding: 10px;
 }
 
-.NavBar ul .navLine {
+.NavBar .navList .navLine {
   margin: 0 auto;
   position: absolute;
   width: 50vw;
@@ -301,28 +282,6 @@
       flex-wrap: wrap;
 }
 
-.SingleBtn button {
-  width: 300px;
-  height: 40px;
-  border-radius: 20px;
-  margin-top: 2vw;
-  margin-left: 2vw;
-  cursor: pointer;
-  background-color: #b61827;
-  border: none;
-  color: #fff;
-}
-
-.SingleBtn button:focus {
-  outline: none;
-}
-
-.SingleBtn button.isLeft {
-  border: 1px solid black;
-  background-color: #fff;
-  color: black;
-}
-
 .RecapDetails {
   width: 100%;
   display: -webkit-box;
@@ -457,5 +416,53 @@
 .ContactMe .infoPrivacy h5 {
   margin: 1vh 0;
   margin-left: 1vh;
+}
+
+.SingleBtn button {
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  margin-top: 2vw;
+  margin-left: 2vw;
+  cursor: pointer;
+  background-color: #b61827;
+  border: none;
+  color: #fff;
+}
+
+.SingleBtn button.isOff {
+  cursor: not-allowed;
+  background-color: #fff;
+}
+
+.SingleBtn button:focus {
+  outline: none;
+}
+
+.SingleBtn button.isLeft {
+  border: 1px solid black;
+  background-color: #fff;
+  color: black;
+}
+
+.installmentBtn {
+  cursor: pointer;
+  border: 1px solid #eceeef;
+  width: 26vw;
+  height: 10vh;
+  background-color: #fff;
+}
+
+.installmentBtn:focus {
+  outline: none;
+}
+
+.installmentBtn.isActive {
+  cursor: pointer;
+  border: 1px solid #eceeef;
+  width: 26vw;
+  height: 10vh;
+  background-color: #e00d29;
+  color: #fff;
 }
 /*# sourceMappingURL=App.css.map */

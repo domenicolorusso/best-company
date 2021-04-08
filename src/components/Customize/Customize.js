@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
@@ -10,22 +10,21 @@ import {
   selectInstallment,
 } from "../../store/features/install/installActions";
 function Customize() {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const installValues = useSelector((state) => state.install);
   console.log(installValues);
-
-  const totVal = 15000;
-  const [askValue, setAskValue] = useState(totVal);
-  const [anticipo, setAnticipo] = useState(0);
   const section = "CUSTOMIZE";
+
+
+
 
   function handldeAdvanceCalculation(e) {
     dispatch(takeAmount(parseInt(e.target.value)));
     dispatch(calcAdvance(installValues.price, e.target.value));
-    // setAskValue(e.target.value);
-    // setAnticipo(totVal-askValue)
   }
+
+
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
@@ -37,7 +36,6 @@ function Customize() {
         <Car />
 
         <h4>Scegli</h4>
-
         <form className="chooseForm">
           <div>
             <label htmlFor="amount">importo da richiedere</label>
@@ -47,6 +45,8 @@ function Customize() {
               placeholder="Euro"
               min="0"
               value={installValues.amount}
+             
+              // onChange={()=> installValues.amount}
             />
           </div>
           <div>
@@ -57,6 +57,7 @@ function Customize() {
               placeholder="Euro"
               min="0"
               value={installValues.advance}
+              // onChange={()=> installValues.advance}
             />
           </div>
         </form>
@@ -73,20 +74,23 @@ function Customize() {
           />
         </div>
 
-        <h4>Rate</h4>
 
+
+        <h4>Rate</h4>
         <div className="installmentWrapper">
           <button
             type="button"
-            className="installmentBtn"
+            
+            className={`installmentBtn ${installValues.installments===24 ? 'isActive' : ''}`}
             onClick={() => handleMonthsInstallment(0)}
           >
+            
             <h3>€408</h3>
             <p>24 Mesi</p>
           </button>
           <button
             type="button"
-            className="installmentBtn"
+            className={`installmentBtn ${installValues.installments===36 ? 'isActive' : ''}`}
             onClick={() => handleMonthsInstallment(1)}
           >
             <h3>€300</h3>
@@ -94,7 +98,7 @@ function Customize() {
           </button>
           <button
             type="button"
-            className="installmentBtn"
+            className={`installmentBtn ${installValues.installments===48 ? 'isActive' : ''}`}
             onClick={() => handleMonthsInstallment(2)}
           >
             <h3>€246</h3>
