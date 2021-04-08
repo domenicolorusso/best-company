@@ -429,9 +429,9 @@
   color: #fff;
 }
 
-.SingleBtn button.isOff {
+.SingleBtn button:disabled {
   cursor: not-allowed;
-  background-color: #fff;
+  background-color: #eceeef;
 }
 
 .SingleBtn button:focus {

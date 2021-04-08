@@ -9,9 +9,9 @@
     background-color: $secondary-red;
     border: none;
     color: #fff;
-    &.isOff {
+    &:disabled {
       cursor: not-allowed;
-      background-color: #fff;
+      background-color: $grey;
     }
     &:focus {
       outline: none;
