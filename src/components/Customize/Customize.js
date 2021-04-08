@@ -4,7 +4,7 @@ import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { takeAmount, calcAdvance } from '../../store/features/install/installActions'
+import { takeAmount, calcAdvance, selectInstallment } from '../../store/features/install/installActions'
 function Customize() {
 
 const dispatch = useDispatch()
@@ -21,11 +21,16 @@ console.log(installValues)
 
 
 
-  function handldeSlider(e) {
-    dispatch(takeAmount(e.target.value))
+  function handldeAdvanceCalculation(e) {
+    dispatch(takeAmount(parseInt(e.target.value)))
     dispatch(calcAdvance(installValues.price, e.target.value))
     // setAskValue(e.target.value);
     // setAnticipo(totVal-askValue)
+  }
+
+  function handleMonthsInstallment(installNumberArray){
+ dispatch(selectInstallment(installNumberArray))
+
   }
 
   return (
@@ -60,22 +65,22 @@ console.log(installValues)
             value={installValues.amount}
             className="slider"
             id="myRange"
-            onChange={(e) => handldeSlider(e)}
+            onChange={(e) => handldeAdvanceCalculation(e)}
           />
         </div>
 
         <h4>Rate</h4>
 
         <div className="installmentWrapper">
-          <button type="button" className="installmentBtn">
+          <button type="button" className="installmentBtn" onClick={()=>handleMonthsInstallment(0)}>
             <h3>€408</h3>
             <p>24 Mesi</p>
           </button>
-          <button type="button" className="installmentBtn">
+          <button type="button" className="installmentBtn" onClick={()=>handleMonthsInstallment(1)}>
             <h3>€300</h3>
             <p>36 Mesi</p>
           </button>
-          <button type="button" className="installmentBtn">
+          <button type="button" className="installmentBtn" onClick={()=>handleMonthsInstallment(2)}>
             <h3>€246</h3>
             <p>48 Mesi</p>
           </button>

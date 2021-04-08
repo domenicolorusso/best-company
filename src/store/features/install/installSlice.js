@@ -35,7 +35,7 @@ export default function installReducer( state = installmentState, action){
      case SELECT_INSTALLMENT:
          return{
              ...state,
-             installments: installment[action.playload]
+             installments: installment[action.payload]
          }
          //da capire come calcolare
      case CALCULATE_FINALINSTALLMEMT:

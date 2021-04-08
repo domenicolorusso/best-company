@@ -13,6 +13,12 @@ export const calcAdvance = () => {
         type: CALCULATE_ADVANCE,
     }
 }
+export const selectInstallment = (installNumber) => {
+    return {
+        type: SELECT_INSTALLMENT,
+        payload: installNumber
+    }
+}
 // export const takeTel = (text) => {
 //     return {
 //         type: TAKE_TEL,
