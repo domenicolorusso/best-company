@@ -2,49 +2,47 @@ import React, { useState } from "react";
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { takeAmount, calcAdvance, selectInstallment } from '../../store/features/install/installActions'
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import {
+  takeAmount,
+  calcAdvance,
+  selectInstallment,
+} from "../../store/features/install/installActions";
 function Customize() {
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch()
+  const installValues = useSelector((state) => state.install);
+  console.log(installValues);
 
-const installValues = useSelector(state=>state.install)
-console.log(installValues)
-
-
-  const totVal = 15000
+  const totVal = 15000;
   const [askValue, setAskValue] = useState(totVal);
- const [anticipo, setAnticipo] = useState(0)
+  const [anticipo, setAnticipo] = useState(0);
   const section = "CUSTOMIZE";
 
-
-
-
   function handldeAdvanceCalculation(e) {
-    dispatch(takeAmount(parseInt(e.target.value)))
-    dispatch(calcAdvance(installValues.price, e.target.value))
+    dispatch(takeAmount(parseInt(e.target.value)));
+    dispatch(calcAdvance(installValues.price, e.target.value));
     // setAskValue(e.target.value);
     // setAnticipo(totVal-askValue)
   }
 
-  function handleMonthsInstallment(installNumberArray){
- dispatch(selectInstallment(installNumberArray))
-
+  function handleMonthsInstallment(installNumberArray) {
+    dispatch(selectInstallment(installNumberArray));
   }
 
   return (
     <div className="Customize">
       <div className="generalWrapper">
-        <Car/>
+        <Car />
 
         <h4>Scegli</h4>
 
         <form className="chooseForm">
           <div>
-            <label htmlFor='amount'>importo da richiedere</label>
+            <label htmlFor="amount">importo da richiedere</label>
             <input
-              id='amount'
+              id="amount"
               type="number"
               placeholder="Euro"
               min="0"
@@ -52,8 +50,14 @@ console.log(installValues)
             />
           </div>
           <div>
-            <label htmlFor='advance'>anticipo</label>
-            <input id='advance' type="number" placeholder="Euro" min="0" value={installValues.advance} />
+            <label htmlFor="advance">anticipo</label>
+            <input
+              id="advance"
+              type="number"
+              placeholder="Euro"
+              min="0"
+              value={installValues.advance}
+            />
           </div>
         </form>
 
@@ -72,15 +76,27 @@ console.log(installValues)
         <h4>Rate</h4>
 
         <div className="installmentWrapper">
-          <button type="button" className="installmentBtn" onClick={()=>handleMonthsInstallment(0)}>
+          <button
+            type="button"
+            className="installmentBtn"
+            onClick={() => handleMonthsInstallment(0)}
+          >
             <h3>€408</h3>
             <p>24 Mesi</p>
           </button>
-          <button type="button" className="installmentBtn" onClick={()=>handleMonthsInstallment(1)}>
+          <button
+            type="button"
+            className="installmentBtn"
+            onClick={() => handleMonthsInstallment(1)}
+          >
             <h3>€300</h3>
             <p>36 Mesi</p>
           </button>
-          <button type="button" className="installmentBtn" onClick={()=>handleMonthsInstallment(2)}>
+          <button
+            type="button"
+            className="installmentBtn"
+            onClick={() => handleMonthsInstallment(2)}
+          >
             <h3>€246</h3>
             <p>48 Mesi</p>
           </button>

@@ -3,25 +3,26 @@ import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import RecapDetails from "../Recap/RecapDetails.js";
 import ResultBox from "../ResultBox";
-
+import { useSelector } from "react-redux";
 function Recap() {
+  const installValues = useSelector((state) => state.install);
   const section = "RECAP";
   return (
     <div className="Recap">
       <div className="generalWrapper">
-        <Car/>
+        <Car />
         <div className="wrapResultBox">
           <ResultBox>
             <p>ANTICIPO</p>
-            <p>€0</p>
+            <p>{`€${installValues.advance}`}</p>
           </ResultBox>
           <ResultBox>
-            <p>35 RATE DA</p>
+            <p>{`${installValues.installments} RATE DA`}</p>
             <p>€300</p>
           </ResultBox>
         </div>
         <ResultBox>
-        <p>Rata Finale</p>
+          <p>Rata Finale</p>
           <p>100€</p>
         </ResultBox>
 
