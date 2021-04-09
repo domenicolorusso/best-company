@@ -1,4 +1,18 @@
-import { TAKE_AMOUNT, CALCULATE_ADVANCE, SELECT_INSTALLMENT, CALCULATE_FINALINSTALLMEMT} from '../../actionTypes'
+import {
+    TAKE_AMOUNT,
+    TAKE_ADVANCE,
+    SELECT_INSTALLMENT,
+    CALCULATE_FINALINSTALLMENT,
+    CALCULATE_INSTALLMENTVALUES,
+    IMPORTO_FINANZIATO,
+    COSTI_FINANZIAMENTO,
+    IMPORTO_RIMBORSARE,
+    SPESA_ISTRUTTORIA,
+    SPESA_INCASSO,
+    IMPOSTA_BOLLO,
+    TAN,
+    TAEG
+  } from "../../actionTypes";
 
 
 
@@ -8,9 +22,9 @@ export const takeAmount = (amount) => {
         payload: amount
     }
 }
-export const calcAdvance = (result) => {
+export const takeAdvance = (result) => {
     return {
-        type: CALCULATE_ADVANCE,
+        type: TAKE_ADVANCE,
         payload: result
     }
 }
@@ -20,22 +34,65 @@ export const selectInstallment = (installNumber) => {
         payload: installNumber
     }
 }
-// export const takeTel = (text) => {
-//     return {
-//         type: TAKE_TEL,
-//         payload: text
-//     }
-// }
-// export const takeEmail = (text) => {
-//     return {
-//         type: TAKE_EMAIL,
-//         payload: text
-//     }
-// }
-// export const takeConfirmEmail = (text) => {
-//     return {
-//         type: TAKE_CONFIRMEMAIL,
-//         payload: text
-//     }
-// }
+export const calculateFinalInstallment = (installNumber) => {
+    return {
+        type: CALCULATE_FINALINSTALLMENT,
+        payload: installNumber
+    }
+}
+export const calculateInstallmentValues = (installNumber) => {
+    return {
+        type: CALCULATE_INSTALLMENTVALUES,
+        payload: installNumber
+    }
+}
+export const importoFinanziato = (installNumber) => {
+    return {
+        type: IMPORTO_FINANZIATO,
+        payload: installNumber
+    }
+}
+export const costiFinanziamento = (installNumber) => {
+    return {
+        type: COSTI_FINANZIAMENTO,
+        payload: installNumber
+    }
+}
+export const importoRimborsare = (installNumber) => {
+    return {
+        type: IMPORTO_RIMBORSARE,
+        payload: installNumber
+    }
+}
+export const spesaIstruttoria = (installNumber) => {
+    return {
+        type: SPESA_ISTRUTTORIA,
+        payload: installNumber
+    }
+}
+export const spesaIncasso = (installNumber) => {
+    return {
+        type: SPESA_INCASSO,
+        payload: installNumber
+    }
+}
+export const impostaBollo = (installNumber) => {
+    return {
+        type: IMPOSTA_BOLLO,
+        payload: installNumber
+    }
+}
+export const tan = (installNumber) => {
+    return {
+        type: TAN,
+        payload: installNumber
+    }
+}
+export const taeg = (installNumber) => {
+    return {
+        type: TAEG,
+        payload: installNumber
+    }
+}
+
 

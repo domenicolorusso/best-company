@@ -5,7 +5,7 @@ import ResultBox from "../ResultBox";
 import  useCalcAdvance  from '../../hooks/useCalcAdvance.js' 
 function Customize() {
   const section = "CUSTOMIZE";
-  const   {handldeAdvanceCalculation, handleMonthsInstallment, installValues }  = useCalcAdvance()
+  const   [ handldeAdvanceCalculation, handleMonthsInstallment, installValues ]  = useCalcAdvance()
   return (
     <div className="Customize">
       <div className="generalWrapper">
@@ -20,7 +20,6 @@ function Customize() {
               placeholder="Euro"
               min="0"
               value={installValues.amount}
-
               onChange={()=> {}}
             />
           </div>
