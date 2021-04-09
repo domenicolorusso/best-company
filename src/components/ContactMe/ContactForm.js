@@ -64,7 +64,6 @@ function ContactForm({ handleFormInput, handleSubmit, userValues, isOff, setIsOf
             value={userValues.confirmEmail || ""}
           />
         </div>
-        <button>Clicca</button>
         <div className="infoPrivacy">
           <h4>INFORMATIVA PRIVACY</h4>
           <p>

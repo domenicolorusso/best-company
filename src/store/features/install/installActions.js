@@ -8,9 +8,10 @@ export const takeAmount = (amount) => {
         payload: amount
     }
 }
-export const calcAdvance = () => {
+export const calcAdvance = (result) => {
     return {
         type: CALCULATE_ADVANCE,
+        payload: result
     }
 }
 export const selectInstallment = (installNumber) => {

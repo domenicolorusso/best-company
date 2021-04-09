@@ -1,4 +1,4 @@
-import {    TAKE_AMOUNT, CALCULATE_ADVANCE, SELECT_INSTALLMENT, CALCULATE_FINALINSTALLMENT } from '../../actionTypes'
+import {    TAKE_AMOUNT, CALCULATE_ADVANCE, SELECT_INSTALLMENT, CALCULATE_FINALINSTALLMENT, CALCULATE_INSTALLMENTVALUES } from '../../actionTypes'
 
 const installment = [24, 36, 48]; 
 
@@ -11,14 +11,20 @@ const installmentState = {
     amount: price,
     advance: 0,
     installments: installment[0],
+    installmentsValues: [0, 0, 0],
     finalInstallment: 0
   };
 
 
-function calcAdvance(price, amount){
-    return price - amount
+// function calcAdvance(price, amount){
+//     return price - amount
 
-}
+// }
+// function calcInstallmentValues(price, amount){
+//     return price - amount
+
+// }
+
 
 export default function installReducer( state = installmentState, action){
     switch (action.type) {
@@ -30,8 +36,16 @@ export default function installReducer( state = installmentState, action){
      case CALCULATE_ADVANCE:
          return{
              ...state,
-             advance: calcAdvance(state.price, state.amount)
+             advance: action.payload
+            //  calcAdvance(state.price, state.amount)
          }
+     case CALCULATE_INSTALLMENTVALUES:
+         return{
+             ...state,
+             installmentsValues: action.payload
+            //  calcInstallmentValues(state.price, state.amount)
+         }
+
      case SELECT_INSTALLMENT:
          return{
              ...state,

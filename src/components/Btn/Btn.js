@@ -1,11 +1,11 @@
 import React from "react";
 import SingleBtn from "./SingleBtn";
 import { NavLink } from "react-router-dom";
+import ResetBtn from "./ResetBtn";
+import SubmitBtn from "./SubmitBtn";
+import PureBtn from "./PureBtn";
 
-
-
-function Btn({section, isOff}) {
- 
+function Btn({ section, isOff }) {
   const btnNames = {
     personalizza: "RIEPILOGO",
     riepilogo: {
@@ -18,33 +18,35 @@ function Btn({section, isOff}) {
     },
   };
 
-
-
   return (
     <div className="Btn">
       {section === "CUSTOMIZE" && (
         <NavLink to="/recap" className="navLink">
-          <SingleBtn btnNames={btnNames.personalizza}/>
+          <PureBtn btnNames={btnNames.personalizza} />
         </NavLink>
       )}
       {section === "RECAP" && (
         <>
           <NavLink to="/customize" className="navLink">
-            <SingleBtn btnNames={btnNames.riepilogo.personalizza} class={'isLeft'}/>
+            <PureBtn
+              btnNames={btnNames.riepilogo.personalizza}
+              btnClass={"isLeft"}
+            />
           </NavLink>
           <NavLink to="/contactme" className="navLink">
-            <SingleBtn btnNames={btnNames.riepilogo.contattami} />
+            <PureBtn btnNames={btnNames.riepilogo.contattami} />
           </NavLink>
         </>
       )}
       {section === "CONTACTME" && (
         <>
           <NavLink to="/recap" className="navLink">
-            <SingleBtn btnNames={btnNames.contattami.riepilogo} class={'isLeft'}/>
+            <PureBtn
+              btnNames={btnNames.contattami.riepilogo}
+              btnClass={"isLeft"}
+            />
           </NavLink>
-          {/* <NavLink to="/" className="navLink"> */}
-            <SingleBtn btnNames={btnNames.contattami.invia} isOff={isOff}/>
-          {/* </NavLink> */}
+          <SubmitBtn btnNames={btnNames.contattami.invia} isOff={isOff} />
         </>
       )}
     </div>

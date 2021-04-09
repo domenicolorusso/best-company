@@ -2,32 +2,14 @@ import React, { useEffect } from "react";
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  takeAmount,
-  calcAdvance,
-  selectInstallment,
-} from "../../store/features/install/installActions";
+import  useCalcAdvance  from '../../hooks/useCalcAdvance.js' 
 function Customize() {
-  const dispatch = useDispatch();
-  const installValues = useSelector((state) => state.install);
-  console.log(installValues);
   const section = "CUSTOMIZE";
-
-  function handldeAdvanceCalculation(e) {
-    dispatch(takeAmount(parseInt(e.target.value)));
-    dispatch(calcAdvance(installValues.price, e.target.value));
-  }
-
-  function handleMonthsInstallment(installNumberArray) {
-    dispatch(selectInstallment(installNumberArray));
-  }
-
+  const   {handldeAdvanceCalculation, handleMonthsInstallment, installValues }  = useCalcAdvance()
   return (
     <div className="Customize">
       <div className="generalWrapper">
         <Car />
-
         <h4>Scegli</h4>
         <form className="chooseForm">
           <div>
@@ -39,7 +21,7 @@ function Customize() {
               min="0"
               value={installValues.amount}
 
-              // onChange={()=> installValues.amount}
+              onChange={()=> {}}
             />
           </div>
           <div>
@@ -50,7 +32,7 @@ function Customize() {
               placeholder="Euro"
               min="0"
               value={installValues.advance}
-              // onChange={()=> installValues.advance}
+              onChange={()=> {}}
             />
           </div>
         </form>

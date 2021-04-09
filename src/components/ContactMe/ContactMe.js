@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function ContactMe() {
   const [isOff, setIsOff] = useState(true);
+  const section = "CONTACTME";
   
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);
@@ -57,7 +58,7 @@ function ContactMe() {
     //   setIsOff(true)
     // }
   };
-  //da sviluppare meglio
+  //todo: da sviluppare meglio
   const isValidForm = () =>
     userValues.name &&
     userValues.surname &&
@@ -65,6 +66,9 @@ function ContactMe() {
     userValues.email &&
     userValues.confirmEmail &&
     userValues.email === userValues.confirmEmail;
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,7 +79,11 @@ function ContactMe() {
       alert("error");
     }
   };
-  const section = "CONTACTME";
+
+
+  
+
+
   useEffect(() => {
     if (isValidForm()) {
       console.log("active");
@@ -85,6 +93,11 @@ function ContactMe() {
       setIsOff(true);
     }
   });
+
+
+
+
+
   return (
     <div className="ContactMe">
       <div className="generalWrapper">
