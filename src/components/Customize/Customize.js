@@ -89,7 +89,7 @@ function Customize() {
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>{ `${installValues.finalInstallment} €`}</p>
+          <p>{ `€${installValues.finalInstallment}`}</p>
         </ResultBox>
 
         <p>TAN 9,00% TAEG 8,20%</p>
