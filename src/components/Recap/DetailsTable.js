@@ -1,17 +1,16 @@
 import React from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 function DetailsTable() {
-
   const installValues = useSelector((state) => state.install);
   return (
     <div className="DetailsTable">
       <div className="detailsSection">
         <h5>Prezzo Veicolo</h5>
-        <p>{`${installValues.price} €`}</p>
+        <p>{`${installValues.price}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Anticipo</h5>
-        <p>{`${installValues.advance} €`}</p>
+        <p>{`${installValues.advance}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Numero rate</h5>
@@ -23,7 +22,7 @@ function DetailsTable() {
       </div>
       <div className="detailsSection">
         <h5>Rata Finale</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.finalInstallment}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Importo Finanziato</h5>

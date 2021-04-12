@@ -2,10 +2,16 @@ import React, { useEffect } from "react";
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
-import  useCalcAdvance  from '../../hooks/useCalcAdvance.js' 
+import useCalcAdvance from "../../hooks/useCalcAdvance.js";
 function Customize() {
   const section = "CUSTOMIZE";
-  const   [ handldeAdvanceCalculation, handleMonthsInstallment, installValues ]  = useCalcAdvance()
+  const [
+    handldeAdvanceCalculation,
+    handleMonthsInstallment,
+    installValues,
+    percentualiRataFinale,
+  ] = useCalcAdvance();
+
   return (
     <div className="Customize">
       <div className="generalWrapper">
@@ -20,7 +26,7 @@ function Customize() {
               placeholder="Euro"
               min="0"
               value={installValues.amount}
-              onChange={()=> {}}
+              onChange={() => {}}
             />
           </div>
           <div>
@@ -31,7 +37,7 @@ function Customize() {
               placeholder="Euro"
               min="0"
               value={installValues.advance}
-              onChange={()=> {}}
+              onChange={() => {}}
             />
           </div>
         </form>
@@ -55,7 +61,7 @@ function Customize() {
             className={`installmentBtn ${
               installValues.installments === 24 ? "isActive" : ""
             }`}
-            onClick={() => handleMonthsInstallment(0)}
+            onClick={() => handleMonthsInstallment(24)}
           >
             <h3>€408</h3>
             <p>24 Mesi</p>
@@ -65,7 +71,7 @@ function Customize() {
             className={`installmentBtn ${
               installValues.installments === 36 ? "isActive" : ""
             }`}
-            onClick={() => handleMonthsInstallment(1)}
+            onClick={() => handleMonthsInstallment(36)}
           >
             <h3>€300</h3>
             <p>36 Mesi</p>
@@ -75,7 +81,7 @@ function Customize() {
             className={`installmentBtn ${
               installValues.installments === 48 ? "isActive" : ""
             }`}
-            onClick={() => handleMonthsInstallment(2)}
+            onClick={() => handleMonthsInstallment(48)}
           >
             <h3>€246</h3>
             <p>48 Mesi</p>
@@ -83,7 +89,7 @@ function Customize() {
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>100€</p>
+          <p>{ `${installValues.finalInstallment} €`}</p>
         </ResultBox>
 
         <p>TAN 9,00% TAEG 8,20%</p>

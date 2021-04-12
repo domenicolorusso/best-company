@@ -14,7 +14,7 @@ import Recap from "./components/Recap/Recap";
 
 
 
-
+//TODO: quesry string
 ///?name=Yaris%201.5&model=GR-S%20MY18&fuel=Hybrid&am=15000&nr=24
 
 

@@ -14,7 +14,7 @@ import {
   TAEG
 } from "../../actionTypes";
 
-const installment = [24, 36, 48];
+
 
 const price = 15000;
 
@@ -22,7 +22,7 @@ const installmentState = {
   price,
   amount: price,
   advance: 0,
-  installments: installment[0],
+  installments: 0,
   installmentsValues: [0, 0, 0],
   finalInstallment: 0,
   importoFinanziato: 0,
@@ -59,7 +59,7 @@ export default function installReducer(state = installmentState, action) {
     case SELECT_INSTALLMENT:
       return {
         ...state,
-        installments: installment[action.payload],
+        installments: action.payload,
       };
    
     case CALCULATE_FINALINSTALLMENT:

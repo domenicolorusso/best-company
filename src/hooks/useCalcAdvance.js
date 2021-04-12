@@ -19,9 +19,9 @@ export default function useCalcAdvance() {
   const dispatch = useDispatch();
   const installValues = useSelector((state) => state.install);
 
+// TODO: adattare i calcoli al custom hook e collegarlo con UI
 
-
-  // ------------Calcolo rata mensile --- ////////////
+  // ------------Calcolo rata mensile --------- ////////////
 
  function calcolaRataMensile(importoRateizzabile, mesi, veicoloPrezzo) {
 
@@ -36,7 +36,7 @@ export default function useCalcAdvance() {
     let prezzo = (-(pv * a) - fv) / ((a - 1) / rate)
     return Math.ceil(prezzo);
 }
-  // ------------Calcolo rata mensile --- ////////////
+  // ------------Calcolo rata finale --- ////////////
 function calcolaRataFinale(mesi, veicoloPrezzo) {
   const percentualeRataFinale = percentualiRataFinale[mesi];
   return Number(veicoloPrezzo) * Number(percentualeRataFinale);
@@ -81,7 +81,7 @@ const percentualiRataFinale = {
 
 
 
-  //Component Handler
+  //Component Handler, qui vendono chiamate le funzioni
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
@@ -89,6 +89,7 @@ const percentualiRataFinale = {
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
+    dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.price)))
   }
-  return [ handldeAdvanceCalculation, handleMonthsInstallment, installValues ];
+  return [ handldeAdvanceCalculation, handleMonthsInstallment, installValues, percentualiRataFinale ];
 }

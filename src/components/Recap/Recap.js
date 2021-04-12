@@ -17,13 +17,13 @@ function Recap() {
             <p>{`€${installValues.advance}`}</p>
           </ResultBox>
           <ResultBox>
-            <p>{`${installValues.installments-1} RATE DA`}</p>
+            <p>{`${installValues.installments - 1} RATE DA`}</p>
             <p>€300</p>
           </ResultBox>
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>100€</p>
+          <p>{`€${installValues.finalInstallment }`}</p>
         </ResultBox>
 
         <RecapDetails />
