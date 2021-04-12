@@ -3,7 +3,6 @@ import {
     TAKE_ADVANCE,
     SELECT_INSTALLMENT,
     CALCULATE_FINALINSTALLMENT,
-    CALCULATE_INSTALLMENTVALUES,
     IMPORTO_FINANZIATO,
     COSTI_FINANZIAMENTO,
     IMPORTO_RIMBORSARE,
@@ -40,12 +39,7 @@ export const calculateFinalInstallment = (installNumber) => {
         payload: installNumber
     }
 }
-export const calculateInstallmentValues = (installNumber) => {
-    return {
-        type: CALCULATE_INSTALLMENTVALUES,
-        payload: installNumber
-    }
-}
+
 export const importoFinanziato = (installNumber) => {
     return {
         type: IMPORTO_FINANZIATO,

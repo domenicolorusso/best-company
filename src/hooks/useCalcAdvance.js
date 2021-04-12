@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react'
 import {
   takeAmount,
   takeAdvance,
   selectInstallment,
   calculateFinalInstallment,
-  calculateInstallmentValues,
   importoFinanziato,
   costiFinanziamento,
   importoRimborsare,
@@ -78,10 +78,16 @@ const percentualiRataFinale = {
   };
 
 
+  useEffect(()=>{
+    dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, installValues.price)))
+  })
 
 
 
-  //Component Handler, qui vendono chiamate le funzioni
+
+  //----------Component Handler, qui vendono chiamate le funzioni -----------//
+
+
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));

@@ -23,7 +23,7 @@ function Recap() {
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>{`€${installValues.finalInstallment }`}</p>
+          <p>{`€${installValues.finalInstallment}`}</p>
         </ResultBox>
 
         <RecapDetails />

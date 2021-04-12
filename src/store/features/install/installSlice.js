@@ -3,7 +3,6 @@ import {
   TAKE_ADVANCE,
   SELECT_INSTALLMENT,
   CALCULATE_FINALINSTALLMENT,
-  CALCULATE_INSTALLMENTVALUES,
   IMPORTO_FINANZIATO,
   COSTI_FINANZIAMENTO,
   IMPORTO_RIMBORSARE,
@@ -22,8 +21,7 @@ const installmentState = {
   price,
   amount: price,
   advance: 0,
-  installments: 0,
-  installmentsValues: [0, 0, 0],
+  installments: 24,
   finalInstallment: 0,
   importoFinanziato: 0,
   costiFinanziamento: 0,
@@ -49,12 +47,6 @@ export default function installReducer(state = installmentState, action) {
         advance: action.payload,
         //  calcAdvance(state.price, state.amount)
       };
-    case CALCULATE_INSTALLMENTVALUES:
-      return {
-        ...state,
-        installmentsValues: action.payload,
-        //  calcInstallmentValues(state.price, state.amount)
-      };
 
     case SELECT_INSTALLMENT:
       return {
@@ -68,8 +60,6 @@ export default function installReducer(state = installmentState, action) {
         finalInstallment: action.payload,
       };
 
-
-      ///////////// DA QUI RICREATE TUTTE LE COSTANTI REDUX /////////////
     case IMPORTO_FINANZIATO:
       return {
         ...state,
