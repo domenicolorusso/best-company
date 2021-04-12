@@ -4,11 +4,12 @@ import {
   takeAmount,
   takeAdvance,
   selectInstallment,
+  rataMensile,
   calculateFinalInstallment,
   importoFinanziato,
   costiFinanziamento,
   importoRimborsare,
-  spesaIstruttoria,
+  speseIstruttoria,
   spesaIncasso,
   impostaBollo,
   tan,
@@ -57,7 +58,10 @@ function calcolaPiano(importoRateizzabile, mesi, rataMensile, rataFinale, veicol
     importoFinanziato,
     totaleDaRimborsare,
     costiFinanziamento,
+    speseIstruttoria,
+    speseIncasso,
     importoAuto,
+    costiBollo,
     acconto
   }
 }
@@ -80,8 +84,22 @@ const percentualiRataFinale = {
 
 
   useEffect(()=>{
-    dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, installValues.price)))
-    
+    let ratMensile = calcolaRataMensile(installValues.amount, installValues.installments, installValues.price)
+    let ratFinale = calcolaRataFinale(installValues.installments, installValues.price)
+    let piano = calcolaPiano(installValues.amount, installValues.installments, ratMensile, ratFinale, installValues.price)
+    console.log(piano)
+    console.log(ratFinale)
+    dispatch(calculateFinalInstallment(ratFinale))
+    dispatch(rataMensile(ratMensile))
+    dispatch(importoFinanziato(piano.importoFinanziato))
+    dispatch(costiFinanziamento(piano.costiFinanziamento))
+    dispatch(importoRimborsare(piano.totaleDaRimborsare))
+    dispatch(speseIstruttoria(piano.speseIstruttoria))
+    dispatch(spesaIncasso(piano.speseIncasso))
+    dispatch(impostaBollo(piano.costiBollo))
+    dispatch(tan(9))
+    dispatch(taeg(8.20))
+
   },[])
 
 
@@ -94,9 +112,10 @@ const percentualiRataFinale = {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
     //TODO: capire come calcolare le altre e visualizzarle sui bottoni
-    //TODO: capire perche rata mensile va in negativo
-    let ratMensile = calcolaRataMensile(installValues.amount, installValues.installments, installValues.price)
-    console.log(ratMensile, 'rata mensile');
+ 
+    //BUG: rata mensile negativa
+    let ratMensile = calcolaRataMensile(e.target.value, installValues.installments, installValues.price)
+    dispatch(rataMensile(ratMensile))
     
   }
 

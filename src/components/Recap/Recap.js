@@ -18,7 +18,7 @@ function Recap() {
           </ResultBox>
           <ResultBox>
             <p>{`${installValues.installments - 1} RATE DA`}</p>
-            <p>€300</p>
+            <p>{`${installValues.rataMensile}€`}</p>
           </ResultBox>
         </div>
         <ResultBox>

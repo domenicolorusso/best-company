@@ -18,7 +18,7 @@ function DetailsTable() {
       </div>
       <div className="detailsSection">
         <h5>Importo rate</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.rataMensile}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Rata Finale</h5>
@@ -26,35 +26,35 @@ function DetailsTable() {
       </div>
       <div className="detailsSection">
         <h5>Importo Finanziato</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.importoFinanziato}`}</p>
       </div>
       <div className="detailsSection">
         <h5>Costi del Finanziamento</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.costiFinanziamento}`}</p>
       </div>
       <div className="detailsSection">
         <h5>Importo da Rimborsare</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.importoRimborsare}`}</p>
       </div>
       <div className="detailsSection">
         <h5>Spese istruttoria</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.speseIstruttoria}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Spese di incasso e gestione pratica</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.spesaIncasso}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Imposta di bollo</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.impostaBollo}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>TAN</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.tan}%`}</p>
       </div>
       <div className="detailsSection">
         <h5>TAEG</h5>
-        <p>1000 €</p>
+        <p>{`${installValues.taeg}%`}</p>
       </div>
     </div>
   );

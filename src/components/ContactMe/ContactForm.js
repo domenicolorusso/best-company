@@ -22,6 +22,7 @@ function ContactForm({ handleFormInput, handleSubmit, userValues, isOff, setIsOf
             name="name"
             onChange={handleFormInput}
             value={userValues.name || ""}
+      
           />
         </div>
         <div className="formField">

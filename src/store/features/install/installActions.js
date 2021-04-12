@@ -2,11 +2,12 @@ import {
     TAKE_AMOUNT,
     TAKE_ADVANCE,
     SELECT_INSTALLMENT,
+    RATA_MENSILE,
     CALCULATE_FINALINSTALLMENT,
     IMPORTO_FINANZIATO,
     COSTI_FINANZIAMENTO,
     IMPORTO_RIMBORSARE,
-    SPESA_ISTRUTTORIA,
+    SPESE_ISTRUTTORIA,
     SPESA_INCASSO,
     IMPOSTA_BOLLO,
     TAN,
@@ -31,6 +32,12 @@ export const selectInstallment = (installNumber) => {
     return {
         type: SELECT_INSTALLMENT,
         payload: installNumber
+    }
+}
+export const rataMensile = (rata) => {
+    return {
+        type: RATA_MENSILE,
+        payload: rata
     }
 }
 export const calculateFinalInstallment = (installNumber) => {
@@ -58,9 +65,9 @@ export const importoRimborsare = (installNumber) => {
         payload: installNumber
     }
 }
-export const spesaIstruttoria = (installNumber) => {
+export const speseIstruttoria = (installNumber) => {
     return {
-        type: SPESA_ISTRUTTORIA,
+        type: SPESE_ISTRUTTORIA,
         payload: installNumber
     }
 }

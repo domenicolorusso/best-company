@@ -25,7 +25,7 @@ function Customize() {
               type="number"
               placeholder="Euro"
               min="0"
-              value={installValues.amount}
+              value={installValues.amount }
               onChange={() => {}}
             />
           </div>
@@ -63,7 +63,7 @@ function Customize() {
             }`}
             onClick={() => handleMonthsInstallment(24)}
           >
-            <h3>€408</h3>
+            <h3>{`€${installValues.rataMensile}`}</h3>
             <p>24 Mesi</p>
           </button>
           <button

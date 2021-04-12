@@ -2,11 +2,12 @@ import {
   TAKE_AMOUNT,
   TAKE_ADVANCE,
   SELECT_INSTALLMENT,
+  RATA_MENSILE,
   CALCULATE_FINALINSTALLMENT,
   IMPORTO_FINANZIATO,
   COSTI_FINANZIAMENTO,
   IMPORTO_RIMBORSARE,
-  SPESA_ISTRUTTORIA,
+  SPESE_ISTRUTTORIA,
   SPESA_INCASSO,
   IMPOSTA_BOLLO,
   TAN,
@@ -22,11 +23,12 @@ const installmentState = {
   amount: price,
   advance: 0,
   installments: 24,
+  rataMensile:0,
   finalInstallment: 0,
   importoFinanziato: 0,
   costiFinanziamento: 0,
   importoRimborsare: 0,
-  spesaIstruttoria: 0,
+  speseIstruttoria: 0,
   spesaIncasso: 0,
   impostaBollo: 0,
   tan: 0,
@@ -46,6 +48,11 @@ export default function installReducer(state = installmentState, action) {
         ...state,
         advance: action.payload,
         //  calcAdvance(state.price, state.amount)
+      };
+    case RATA_MENSILE:
+      return {
+        ...state,
+        rataMensile: action.payload,
       };
 
     case SELECT_INSTALLMENT:
@@ -75,10 +82,10 @@ export default function installReducer(state = installmentState, action) {
         ...state,
         importoRimborsare: action.payload,
       };
-    case SPESA_ISTRUTTORIA:
+    case SPESE_ISTRUTTORIA:
       return {
         ...state,
-        spesaIstruttoria: action.payload,
+        speseIstruttoria: action.payload,
       };
     case SPESA_INCASSO:
       return {
