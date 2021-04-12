@@ -83,10 +83,12 @@ const percentualiRataFinale = {
 
 
 
+  let ratMensile = calcolaRataMensile(installValues.amount, installValues.installments, installValues.price)
+  let ratFinale = calcolaRataFinale(installValues.installments, installValues.price)
+  let piano = calcolaPiano(installValues.amount, installValues.installments, ratMensile, ratFinale, installValues.price)
+
+
   useEffect(()=>{
-    let ratMensile = calcolaRataMensile(installValues.amount, installValues.installments, installValues.price)
-    let ratFinale = calcolaRataFinale(installValues.installments, installValues.price)
-    let piano = calcolaPiano(installValues.amount, installValues.installments, ratMensile, ratFinale, installValues.price)
     console.log(piano)
     console.log(ratFinale)
     dispatch(calculateFinalInstallment(ratFinale))
@@ -99,7 +101,6 @@ const percentualiRataFinale = {
     dispatch(impostaBollo(piano.costiBollo))
     dispatch(tan(9))
     dispatch(taeg(8.20))
-
   },[])
 
 
@@ -111,6 +112,7 @@ const percentualiRataFinale = {
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
+    dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, e.target.value).toFixed(2)))
     //TODO: capire come calcolare le altre e visualizzarle sui bottoni
  
     //BUG: rata mensile negativa
@@ -121,7 +123,7 @@ const percentualiRataFinale = {
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
-    dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.price)))
+    dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.amount).toFixed(2)))
   }
   return [ handldeAdvanceCalculation, handleMonthsInstallment, installValues, percentualiRataFinale ];
 }

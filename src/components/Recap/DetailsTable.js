@@ -26,15 +26,15 @@ function DetailsTable() {
       </div>
       <div className="detailsSection">
         <h5>Importo Finanziato</h5>
-        <p>{`${installValues.importoFinanziato}`}</p>
+        <p>{`${installValues.importoFinanziato}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Costi del Finanziamento</h5>
-        <p>{`${installValues.costiFinanziamento}`}</p>
+        <p>{`${installValues.costiFinanziamento}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Importo da Rimborsare</h5>
-        <p>{`${installValues.importoRimborsare}`}</p>
+        <p>{`${installValues.importoRimborsare}€`}</p>
       </div>
       <div className="detailsSection">
         <h5>Spese istruttoria</h5>
