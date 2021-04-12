@@ -78,9 +78,11 @@ const percentualiRataFinale = {
   };
 
 
+
   useEffect(()=>{
     dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, installValues.price)))
-  })
+    
+  },[])
 
 
 
@@ -91,6 +93,11 @@ const percentualiRataFinale = {
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
+    //TODO: capire come calcolare le altre e visualizzarle sui bottoni
+    //TODO: capire perche rata mensile va in negativo
+    let ratMensile = calcolaRataMensile(installValues.amount, installValues.installments, installValues.price)
+    console.log(ratMensile, 'rata mensile');
+    
   }
 
   function handleMonthsInstallment(installNumberArray) {
