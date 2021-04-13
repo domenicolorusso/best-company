@@ -19,7 +19,7 @@ function DetailsTable() {
       </div>
       <div className="detailsSection">
         <h5>Importo rate</h5>
-        <p>{`${currencyFormatter(installValues.rataMensile)}`}</p>
+        <p>{`${currencyFormatter(installValues.rataMensile[installValues.installments])}`}</p>
       </div>
       <div className="detailsSection">
         <h5>Rata Finale</h5>

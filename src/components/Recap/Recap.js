@@ -15,16 +15,16 @@ function Recap() {
         <div className="wrapResultBox">
           <ResultBox>
             <p>ANTICIPO</p>
-            <p>{`€${currencyFormatter(installValues.advance)}`}</p>
+            <p>{`${currencyFormatter(installValues.advance)}`}</p>
           </ResultBox>
           <ResultBox>
             <p>{`${installValues.installments - 1} RATE DA`}</p>
-            <p>{`€${installValues.rataMensile[installValues.installments]}`}</p>
+            <p>{`${currencyFormatter(installValues.rataMensile[installValues.installments])}`}</p>
           </ResultBox>
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>{`€${currencyFormatter(installValues.finalInstallment)}`}</p>
+          <p>{`${currencyFormatter(installValues.finalInstallment)}`}</p>
         </ResultBox>
 
         <RecapDetails />

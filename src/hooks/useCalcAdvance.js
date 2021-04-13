@@ -162,17 +162,13 @@ export default function useCalcAdvance() {
         )
       )
     );
-
-
-   
-
-    //TOFIX: installments object, aggiornare i bottoni con un oggetto in redux.. soluzione migliore?
-    let ratMensile = calcolaRataMensile(
-      e.target.value,
-      installValues.installments,
-      installValues.price
-    );
-    dispatch(rataMensile(ratMensile));
+  //TOFIX: installments object, aggiornare i bottoni con un oggetto in redux.. soluzione migliore?
+    // let ratMensile = calcolaRataMensile(
+    //   e.target.value,
+    //   installValues.installments,
+    //   installValues.price
+    // );
+    // dispatch(rataMensile(ratMensile));
   }
 
   function handleMonthsInstallment(installNumberArray) {
