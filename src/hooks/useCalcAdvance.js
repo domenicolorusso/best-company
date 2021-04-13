@@ -126,7 +126,7 @@ const percentualiRataFinale = {
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
-    dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.amount).toFixed(0)))
+    dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.price).toFixed(0)))
   }
   return [ handldeAdvanceCalculation, handleMonthsInstallment, installValues, percentualiRataFinale ];
 }
