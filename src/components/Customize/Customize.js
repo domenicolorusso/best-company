@@ -3,6 +3,7 @@ import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
 import useCalcAdvance from "../../hooks/useCalcAdvance.js";
+import { currencyFormatter } from '../../hooks/utils'
 function Customize() {
   const section = "CUSTOMIZE";
   const [
@@ -64,7 +65,7 @@ function Customize() {
             }`}
             onClick={() => handleMonthsInstallment(24)}
           >
-            <h3>{`€${installValues.rataMensile}`}</h3>
+            <h3>{`€${currencyFormatter(installValues.rataMensile)}`}</h3>
             <p>24 Mesi</p>
           </button>
           <button
@@ -90,7 +91,7 @@ function Customize() {
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>{ `€${installValues.finalInstallment}`}</p>
+          <p>{ `€${currencyFormatter(installValues.finalInstallment)}`}</p>
         </ResultBox>
 
         <p>TAN 9,00% TAEG 8,20%</p>

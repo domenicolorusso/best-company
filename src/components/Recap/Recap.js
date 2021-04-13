@@ -4,6 +4,7 @@ import Car from "../Car/Car";
 import RecapDetails from "../Recap/RecapDetails.js";
 import ResultBox from "../ResultBox";
 import { useSelector } from "react-redux";
+import { currencyFormatter } from '../../hooks/utils'
 function Recap() {
   const installValues = useSelector((state) => state.install);
   const section = "RECAP";
@@ -14,7 +15,7 @@ function Recap() {
         <div className="wrapResultBox">
           <ResultBox>
             <p>ANTICIPO</p>
-            <p>{`€${installValues.advance}`}</p>
+            <p>{`€${currencyFormatter(installValues.advance)}`}</p>
           </ResultBox>
           <ResultBox>
             <p>{`${installValues.installments - 1} RATE DA`}</p>
@@ -23,7 +24,7 @@ function Recap() {
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>{`€${installValues.finalInstallment}`}</p>
+          <p>{`€${currencyFormatter(installValues.finalInstallment)}`}</p>
         </ResultBox>
 
         <RecapDetails />
