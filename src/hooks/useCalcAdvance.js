@@ -117,7 +117,7 @@ const percentualiRataFinale = {
  
     //BUG: rata mensile negativa
     //valore minimo: prezzo veicolo - rata finale
-    //TODO: mettere valore minimo e rata finale non cambia all onchange
+    //TODO: mettere valore minimo 
     //TOFIX: installments object, aggiornare i bottoni con un oggetto in redux.. soluzione migliore?
     let ratMensile = calcolaRataMensile(e.target.value, installValues.installments, installValues.price)
     dispatch(rataMensile(ratMensile))

@@ -24,7 +24,7 @@ function Customize() {
               id="amount"
               type="number"
               placeholder="Euro"
-              min="0"
+              min='0'
               value={installValues.amount }
               onChange={() => {}}
             />
@@ -45,7 +45,7 @@ function Customize() {
         <div className="slidecontainer">
           <input
             type="range"
-            min="1"
+            min={ installValues.price - installValues.amount }
             max={installValues.price}
             value={installValues.amount}
             className="slider"
