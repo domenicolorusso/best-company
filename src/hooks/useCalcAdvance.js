@@ -20,8 +20,6 @@ export default function useCalcAdvance() {
   const dispatch = useDispatch();
   const installValues = useSelector((state) => state.install);
 
-
-
   // ------------Calcolo rata mensile --------- ////////////
 
   const calcolaminValue = (prezzoVeicolo, rataFinale) => {
@@ -92,10 +90,9 @@ export default function useCalcAdvance() {
     72: 0.25,
   };
 
-
   const dispatchInitState = () => {
     dispatch(calculateFinalInstallment(ratFinale));
-    dispatch(rataMensile(ratMensile24, ratMensile36, ratMensile48));
+    dispatch(rataMensile(calcolaSingoleRate(installValues.amount)));
     dispatch(importoFinanziato(piano.importoFinanziato));
     dispatch(costiFinanziamento(piano.costiFinanziamento));
     dispatch(importoRimborsare(piano.totaleDaRimborsare));
@@ -110,26 +107,24 @@ export default function useCalcAdvance() {
     installValues.price,
     installValues.finalInstallment
   );
-  let ratMensile24 = calcolaRataMensile(
-    installValues.amount,
-    24,
-    installValues.price
-  );
+
   let ratMensile = calcolaRataMensile(
     installValues.amount,
     installValues.installments,
     installValues.price
   );
-  let ratMensile36 = calcolaRataMensile(
-    installValues.amount,
-    36,
-    installValues.price
-  );
-  let ratMensile48 = calcolaRataMensile(
-    installValues.amount,
-    48,
-    installValues.price
-  );
+
+  function calcolaSingoleRate(e) {
+    let ratMensile24 = calcolaRataMensile(e, 24, installValues.price);
+    let ratMensile36 = calcolaRataMensile(e, 36, installValues.price);
+    let ratMensile48 = calcolaRataMensile(e, 48, installValues.price);
+    return {
+      24: ratMensile24,
+      36: ratMensile36,
+      48: ratMensile48,
+    };
+  }
+
   let ratFinale = calcolaRataFinale(
     installValues.installments,
     installValues.price
@@ -151,31 +146,23 @@ export default function useCalcAdvance() {
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
-    dispatch(rataMensile(ratMensile24, ratMensile36, ratMensile48));
+    // console.log(calcolaSingoleRate(e.target.value));
+
+    dispatch(rataMensile(calcolaSingoleRate(e.target.value)));
     dispatch(
       calculateFinalInstallment(
         Number(
-          calcolaRataFinale(
-            installValues.installments,
-            installValues.price
-          ).toFixed(0)
+          calcolaRataFinale(installValues.installments, installValues.price)
         )
       )
     );
-  //TOFIX: installments object, aggiornare i bottoni con un oggetto in redux.. soluzione migliore?
-    // let ratMensile = calcolaRataMensile(
-    //   e.target.value,
-    //   installValues.installments,
-    //   installValues.price
-    // );
-    // dispatch(rataMensile(ratMensile));
   }
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
     dispatch(
       calculateFinalInstallment(
-        Number(calcolaRataFinale(installNumberArray, installValues.price)).toFixed(0)
+        Number(calcolaRataFinale(installNumberArray, installValues.price))
       )
     );
     calcolaminValue(installValues.price, installValues.finalInstallment);

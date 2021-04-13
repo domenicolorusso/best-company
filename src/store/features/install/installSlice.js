@@ -11,11 +11,9 @@ import {
   SPESA_INCASSO,
   IMPOSTA_BOLLO,
   TAN,
-  TAEG
+  TAEG,
 } from "../../actionTypes";
 import { rataMensile } from "./installActions";
-
-
 
 const price = 15000;
 
@@ -24,11 +22,7 @@ const installmentState = {
   amount: price,
   advance: 0,
   installments: 24,
-  rataMensile: {
-    24: 0,
-    36: 0,
-    48: 0
-  },
+  rataMensile: 0,
   finalInstallment: 0,
   importoFinanziato: 0,
   costiFinanziamento: 0,
@@ -38,7 +32,6 @@ const installmentState = {
   impostaBollo: 0,
   tan: 0,
   taeg: 0,
-  
 };
 
 export default function installReducer(state = installmentState, action) {
@@ -52,12 +45,11 @@ export default function installReducer(state = installmentState, action) {
       return {
         ...state,
         advance: action.payload,
-
       };
     case RATA_MENSILE:
       return {
         ...state,
-        rataMensile: action.payload
+        rataMensile: action.payload,
       };
 
     case SELECT_INSTALLMENT:
@@ -65,7 +57,7 @@ export default function installReducer(state = installmentState, action) {
         ...state,
         installments: action.payload,
       };
-   
+
     case CALCULATE_FINALINSTALLMENT:
       return {
         ...state,
