@@ -19,13 +19,16 @@ import {
 export default function useCalcAdvance() {
   const dispatch = useDispatch();
   const installValues = useSelector((state) => state.install);
-
-// TODO: adattare i calcoli al custom hook e collegarlo con UI
-
+  
+  // TODO: adattare i calcoli al custom hook e collegarlo con UI
+  
   // ------------Calcolo rata mensile --------- ////////////
-
- function calcolaRataMensile(importoRateizzabile, mesi, veicoloPrezzo) {
-
+  
+  const calcolaminValue = (prezzoVeicolo, rataFinale) => {
+  return prezzoVeicolo - rataFinale
+  }
+  function calcolaRataMensile(importoRateizzabile, mesi, veicoloPrezzo) {
+    
     const rataFinale = calcolaRataFinale(mesi, veicoloPrezzo);
     const speseIstruttoria = 350;
     const ammontareDelFinanziamento = Number(importoRateizzabile) + speseIstruttoria;
@@ -82,7 +85,7 @@ const percentualiRataFinale = {
   };
 
 
-
+  let valoreMinimo = calcolaminValue(installValues.price , installValues.finalInstallment)
   let ratMensile = calcolaRataMensile(installValues.amount, installValues.installments, installValues.price)
   let ratFinale = calcolaRataFinale(installValues.installments, installValues.price)
   let piano = calcolaPiano(installValues.amount, installValues.installments, ratMensile, ratFinale, installValues.price)
@@ -109,24 +112,27 @@ const percentualiRataFinale = {
   //----------Component Handler, qui vendono chiamate le funzioni -----------//
 
 
+
+
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
     dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, installValues.price).toFixed(0)))
     //TODO: capire come calcolare le altre e visualizzarle sui bottoni
- 
     //BUG: rata mensile negativa
     //valore minimo: prezzo veicolo - rata finale
-    //TODO: mettere valore minimo 
+    
     //TOFIX: installments object, aggiornare i bottoni con un oggetto in redux.. soluzione migliore?
     let ratMensile = calcolaRataMensile(e.target.value, installValues.installments, installValues.price)
     dispatch(rataMensile(ratMensile))
+    
     
   }
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
     dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.price).toFixed(0)))
+    calcolaminValue(installValues.price,  installValues.finalInstallment)
   }
-  return [ handldeAdvanceCalculation, handleMonthsInstallment, installValues, percentualiRataFinale ];
+  return [ handldeAdvanceCalculation, handleMonthsInstallment, installValues, percentualiRataFinale, valoreMinimo ];
 }

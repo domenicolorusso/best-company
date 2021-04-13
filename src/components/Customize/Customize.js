@@ -10,6 +10,7 @@ function Customize() {
     handleMonthsInstallment,
     installValues,
     percentualiRataFinale,
+    valoreMinimo
   ] = useCalcAdvance();
 
   return (
@@ -45,7 +46,7 @@ function Customize() {
         <div className="slidecontainer">
           <input
             type="range"
-            min={ installValues.price - installValues.amount }
+            min={ valoreMinimo}
             max={installValues.price}
             value={installValues.amount}
             className="slider"
