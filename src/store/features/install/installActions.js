@@ -34,10 +34,14 @@ export const selectInstallment = (installNumber) => {
         payload: installNumber
     }
 }
-export const rataMensile = (rata) => {
+export const rataMensile = (first, second, third) => {
     return {
         type: RATA_MENSILE,
-        payload: rata
+        payload: {
+            24: first,
+            36: second, 
+            48: third
+        }
     }
 }
 export const calculateFinalInstallment = (installNumber) => {

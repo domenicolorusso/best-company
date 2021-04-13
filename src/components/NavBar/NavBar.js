@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 
 function NavBar() {
-
+//TOFIX: nav non navigabile 
+//TOFIX: nav media queries per mobile  
   return (
     <div className="NavBar">
       <ul className="navList">

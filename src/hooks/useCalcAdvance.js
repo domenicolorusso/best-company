@@ -20,7 +20,7 @@ export default function useCalcAdvance() {
   const dispatch = useDispatch();
   const installValues = useSelector((state) => state.install);
 
-  // TODO: adattare i calcoli al custom hook e collegarlo con UI
+
 
   // ------------Calcolo rata mensile --------- ////////////
 
@@ -80,6 +80,9 @@ export default function useCalcAdvance() {
     };
   }
 
+  const calc = (price, amount) => {
+    return price - amount;
+  };
   const percentualiRataFinale = {
     12: 0.45,
     24: 0.45,
@@ -89,13 +92,10 @@ export default function useCalcAdvance() {
     72: 0.25,
   };
 
-  const calc = (price, amount) => {
-    return price - amount;
-  };
 
   const dispatchInitState = () => {
     dispatch(calculateFinalInstallment(ratFinale));
-    dispatch(rataMensile(ratMensile));
+    dispatch(rataMensile(ratMensile24, ratMensile36, ratMensile48));
     dispatch(importoFinanziato(piano.importoFinanziato));
     dispatch(costiFinanziamento(piano.costiFinanziamento));
     dispatch(importoRimborsare(piano.totaleDaRimborsare));
@@ -110,9 +110,24 @@ export default function useCalcAdvance() {
     installValues.price,
     installValues.finalInstallment
   );
+  let ratMensile24 = calcolaRataMensile(
+    installValues.amount,
+    24,
+    installValues.price
+  );
   let ratMensile = calcolaRataMensile(
     installValues.amount,
     installValues.installments,
+    installValues.price
+  );
+  let ratMensile36 = calcolaRataMensile(
+    installValues.amount,
+    36,
+    installValues.price
+  );
+  let ratMensile48 = calcolaRataMensile(
+    installValues.amount,
+    48,
     installValues.price
   );
   let ratFinale = calcolaRataFinale(
@@ -136,6 +151,7 @@ export default function useCalcAdvance() {
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
+    dispatch(rataMensile(ratMensile24, ratMensile36, ratMensile48));
     dispatch(
       calculateFinalInstallment(
         Number(
@@ -146,9 +162,9 @@ export default function useCalcAdvance() {
         )
       )
     );
-    //TODO: capire come calcolare le altre e visualizzarle sui bottoni
-    //BUG: rata mensile negativa
-    //valore minimo: prezzo veicolo - rata finale
+
+
+   
 
     //TOFIX: installments object, aggiornare i bottoni con un oggetto in redux.. soluzione migliore?
     let ratMensile = calcolaRataMensile(
@@ -163,7 +179,7 @@ export default function useCalcAdvance() {
     dispatch(selectInstallment(installNumberArray));
     dispatch(
       calculateFinalInstallment(
-        calcolaRataFinale(installNumberArray, installValues.price).toFixed(0)
+        Number(calcolaRataFinale(installNumberArray, installValues.price)).toFixed(0)
       )
     );
     calcolaminValue(installValues.price, installValues.finalInstallment);

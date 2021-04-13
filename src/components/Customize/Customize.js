@@ -65,7 +65,7 @@ function Customize() {
             }`}
             onClick={() => handleMonthsInstallment(24)}
           >
-            <h3>{`€${currencyFormatter(installValues.rataMensile)}`}</h3>
+            <h3>{`€${currencyFormatter(installValues.rataMensile[24])}`}</h3>
             <p>24 Mesi</p>
           </button>
           <button
@@ -75,7 +75,7 @@ function Customize() {
             }`}
             onClick={() => handleMonthsInstallment(36)}
           >
-            <h3>€300</h3>
+            <h3>{`€${currencyFormatter(installValues.rataMensile[36])}`}</h3>
             <p>36 Mesi</p>
           </button>
           <button
@@ -85,13 +85,13 @@ function Customize() {
             }`}
             onClick={() => handleMonthsInstallment(48)}
           >
-            <h3>€246</h3>
+            <h3>{`€${currencyFormatter(installValues.rataMensile[48])}`}</h3>
             <p>48 Mesi</p>
           </button>
         </div>
         <ResultBox>
           <p>Rata Finale</p>
-          <p>{ `€${currencyFormatter(installValues.finalInstallment)}`}</p>
+          <p>{ `${currencyFormatter(installValues.finalInstallment)}`}</p>
         </ResultBox>
 
         <p>TAN 9,00% TAEG 8,20%</p>
