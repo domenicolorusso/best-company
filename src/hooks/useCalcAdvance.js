@@ -117,7 +117,7 @@ const percentualiRataFinale = {
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
-    dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, installValues.price).toFixed(0)))
+    dispatch(calculateFinalInstallment(Number(calcolaRataFinale(installValues.installments, installValues.price).toFixed(0))))
     //TODO: capire come calcolare le altre e visualizzarle sui bottoni
     //BUG: rata mensile negativa
     //valore minimo: prezzo veicolo - rata finale
