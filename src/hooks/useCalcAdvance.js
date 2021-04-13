@@ -112,10 +112,13 @@ const percentualiRataFinale = {
   function handldeAdvanceCalculation(e) {
     dispatch(takeAdvance(calc(installValues.price, e.target.value)));
     dispatch(takeAmount(parseInt(e.target.value)));
-    dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, e.target.value).toFixed(2)))
+    dispatch(calculateFinalInstallment(calcolaRataFinale(installValues.installments, installValues.price).toFixed(0)))
     //TODO: capire come calcolare le altre e visualizzarle sui bottoni
  
     //BUG: rata mensile negativa
+    //valore minimo: prezzo veicolo - rata finale
+    //TODO: mettere valore minimo e rata finale non cambia all onchange
+    //TOFIX: installments object, aggiornare i bottoni con un oggetto in redux.. soluzione migliore?
     let ratMensile = calcolaRataMensile(e.target.value, installValues.installments, installValues.price)
     dispatch(rataMensile(ratMensile))
     
@@ -123,7 +126,7 @@ const percentualiRataFinale = {
 
   function handleMonthsInstallment(installNumberArray) {
     dispatch(selectInstallment(installNumberArray));
-    dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.amount).toFixed(2)))
+    dispatch(calculateFinalInstallment(calcolaRataFinale(installNumberArray, installValues.amount).toFixed(0)))
   }
   return [ handldeAdvanceCalculation, handleMonthsInstallment, installValues, percentualiRataFinale ];
 }

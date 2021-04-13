@@ -5,7 +5,7 @@ function NavBar() {
   return (
     <div className="NavBar">
       <ul className="navList">
-      <div className="navLine"></div>
+      {/* <div className="navLine"></div> */}
         <NavLink to="/customize" className="navLink">
           <div className="dot"></div>
           <p>Personalizza</p>

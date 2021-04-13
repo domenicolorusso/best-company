@@ -18,36 +18,48 @@
       text-decoration: none;
       color: $black;
       width: 30px;
+      .dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background-color: $grey;
+        position: relative;
+      }
+      .dot::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-top: 0.5rem;
+        margin-right: 1.5rem;
+        display: block;
+        width: 7vw;
+        height: 3px;
+        background-color: $grey;
+      }
+      .dot::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 0.5rem;
+        margin-left: 1.5rem;
+        display: block;
+        width: 7vw;
+        height: 3px;
+        background-color: $grey;
+      }
       &.active p {
-        font-size: 1rem;
         color: $secondary-red;
       }
       &.active .dot {
         background-color: $secondary-red;
-        width: 22px;
-        height: 22px;
       }
     }
     p {
-        font-size: 14px;
+      font-size: 14px;
       display: inline-block;
-      padding: 10px;
+      margin: 1rem 0;
     }
-    .navLine {
-      margin: 0 auto;
-      position: absolute;
-      width: 50vw;
-      left: 25%;
-      top: 10.5vh;
-      z-index: -1;
-      height: 3px;
-      background-color: $grey;
-    }
-  }
-  .dot {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: $grey;
   }
 }
