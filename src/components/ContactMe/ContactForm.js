@@ -1,14 +1,13 @@
 import React from "react";
 import Btn from "../Btn/Btn";
-// import { takeName } from '../../store/features/user/userActions';
-// import { useDispatch, useSelector} from 'react-redux';
-function ContactForm({ handleFormInput, handleSubmit, userValues, isOff, setIsOff , section}) {
-  // const [userData, setUserData ] = useState({})
-  // const dispatch = useDispatch();
-  // const userValues = useSelector( state => state.user )
-
-  // console.log(userValues)
-  // const [validate, setValidate] = useState(false);
+function ContactForm({
+  handleFormInput,
+  handleSubmit,
+  userValues,
+  isOff,
+  setIsOff,
+  section,
+}) {
   return (
     <div className="ContactForm">
       <h4>Invia Richesta</h4>
@@ -22,7 +21,6 @@ function ContactForm({ handleFormInput, handleSubmit, userValues, isOff, setIsOf
             name="name"
             onChange={handleFormInput}
             value={userValues.name || ""}
-      
           />
         </div>
         <div className="formField">
