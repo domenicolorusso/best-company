@@ -19,3 +19,14 @@
     }
   }
   
+
+  @include responsive(small){
+    .Header{
+      .headerContent{
+        justify-content: center;
+        .headerContent__data{
+          display: none;
+      }
+      }
+    }
+  }

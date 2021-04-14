@@ -45,6 +45,17 @@
   padding-left: 1rem;
 }
 
+@media (max-width: 600px) {
+  .Header .headerContent {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .Header .headerContent .headerContent__data {
+    display: none;
+  }
+}
+
 .Footer {
   margin-top: 20vh;
   display: -webkit-box;
@@ -151,6 +162,21 @@
   margin: 1rem 0;
 }
 
+@media (max-width: 600px) {
+  .NavBar .navList .navLink {
+    margin: 2rem 0;
+  }
+  .NavBar .navList .navLink .dot::before {
+    display: none;
+  }
+  .NavBar .navList .navLink .dot::after {
+    display: none;
+  }
+  .NavBar .navList p {
+    display: none;
+  }
+}
+
 .Car {
   width: 100%;
   height: 20vh;
@@ -172,6 +198,12 @@
 .Car h4 {
   margin-top: 0;
   color: black;
+}
+
+@media (max-width: 600px) {
+  .Car img {
+    display: none;
+  }
 }
 
 .Customize h4 {

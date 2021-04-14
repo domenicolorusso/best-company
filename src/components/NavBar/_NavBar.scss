@@ -49,6 +49,7 @@
         height: 3px;
         background-color: $grey;
       }
+
       &.active p {
         color: $secondary-red;
       }
@@ -60,6 +61,29 @@
       font-size: 14px;
       display: inline-block;
       margin: 1rem 0;
+    }
+  }
+}
+
+
+
+@include responsive(small) {
+  .NavBar {
+    .navList {
+      .navLink {
+        margin: 2rem 0;
+        .dot {
+          &::before {
+            display: none;
+          }
+          &::after {
+            display: none;
+          }
+        }
+      }
+      p {
+        display: none;
+      }
     }
   }
 }
