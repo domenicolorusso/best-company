@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Btn from "../Btn/Btn";
 import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
