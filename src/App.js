@@ -11,48 +11,26 @@ import NavBar from "./components/NavBar/NavBar";
 import Customize from "./components/Customize/Customize";
 import ContactMe from "./components/ContactMe/ContactMe";
 import Recap from "./components/Recap/Recap";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from 'react'
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
-
-//TODO: query string
-///?name=Yaris%201.5&model=GR-S%20MY18&fuel=Hybrid&am=15000&nr=24
-// const q = new URLSearchParams({
-//   name: 'Yaris 1.5',
-//   model: 'GR-S MY18',
-//   fuel: 'Hybrid',
-//   am: 15000,
-//   nr: 24
-
-// })
-
-// q.toString()
-
-
+//TODO query string
 function App() {
   const installValues = useSelector((state) => state.install);
+  const [query, setQuery] = useState("");
+  ///?name=Yaris%201.5&model=GR-S%20MY18&fuel=Hybrid&am=15000&nr=24
+  useEffect(() => {
+    setQuery(
+      new URLSearchParams({
+        name: "Yaris 1.5",
+        model: "GR-S MY18",
+        fuel: "Hybrid",
+        am: installValues.price,
+        nr: installValues.installments,
+      })
+    );
 
-
-let q;
-  // const q = new URLSearchParams({
-  //   name: 'Yaris 1.5',
-  //   model: 'GR-S MY18',
-  //   fuel: 'Hybrid',
-  //   am: 15000,
-  //   nr: installValues.selectInstallment
-  
-  // })
-useEffect(()=>{
-   q = new URLSearchParams({
-    name: 'Yaris 1.5',
-    model: 'GR-S MY18',
-    fuel: 'Hybrid',
-    am: installValues.price,
-    nr: installValues.installments
-  
-  })
-  console.log(q.toString());
-}, [installValues.installments, installValues.price])
+  }, [installValues.installments, installValues.price]);
   return (
     <Router>
       <div className="App">
@@ -60,11 +38,11 @@ useEffect(()=>{
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <Redirect to={`/customize/${q}`}  component={Customize} />
+            <Redirect to={`/customize`} component={Customize} />
           </Route>
-          <Route path="/customize"  component={Customize} />
-          <Route path="/contactme"  component={ContactMe} />
-          <Route path="/recap"  component={Recap} />
+          <Route path={`/customize`} component={Customize} />
+          <Route path="/contactme" component={ContactMe} />
+          <Route path="/recap" component={Recap} />
         </Switch>
         <Footer />
       </div>

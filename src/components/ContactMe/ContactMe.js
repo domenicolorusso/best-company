@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm";
 import useFormManagement from "../../hooks/useFormManagement";
 function ContactMe() {
   const section = "CONTACTME";
-  const [handleFormInput, userValues, handleSubmit, isOff,setIsOff] = useFormManagement();
+  const [handleFormInput, userValues, handleSubmit, isOff,setIsOff, user, errors] = useFormManagement();
   return (
     <div className="ContactMe">
       <div className="generalWrapper">
@@ -14,6 +14,8 @@ function ContactMe() {
           isOff={isOff}
           setIsOff={setIsOff}
           section={section}
+          user={user}
+          errors={errors}
         />
       </div>
     </div>

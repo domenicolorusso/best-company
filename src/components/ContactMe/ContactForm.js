@@ -7,6 +7,8 @@ function ContactForm({
   isOff,
   setIsOff,
   section,
+  user,
+  errors
 }) {
   return (
     <div className="ContactForm">
@@ -20,8 +22,9 @@ function ContactForm({
             id="name"
             name="name"
             onChange={handleFormInput}
-            value={userValues.name || ""}
+            value={user.name || ""}
           />
+          {errors.name && <span>{errors.name}</span>}
         </div>
         <div className="formField">
           <label htmlFor="surname">Cognome*</label>
@@ -30,8 +33,9 @@ function ContactForm({
             id="surname"
             name="surname"
             onChange={handleFormInput}
-            value={userValues.surname || ""}
+            value={user.surname || ""}
           />
+          {errors.surname && <span>{errors.surname}</span>}
         </div>
         <div className="formField">
           <label htmlFor="telNumber">Cellulare*</label>
@@ -40,8 +44,9 @@ function ContactForm({
             id="telNumber"
             name="telNumber"
             onChange={handleFormInput}
-            value={userValues.telNumber || ""}
+            value={user.telNumber || ""}
           />
+          {errors.telNumber && <span>{errors.telNumber}</span>}
         </div>
         <div className="formField">
           <label htmlFor="email">Indirizzo E-mail*</label>
@@ -50,8 +55,9 @@ function ContactForm({
             id="email"
             name="email"
             onChange={handleFormInput}
-            value={userValues.email || ""}
+            value={user.email || ""}
           />
+          {errors.email && <span>{errors.email}</span>}
         </div>
         <div className="formField">
           <label htmlFor="confirmEmail">Conferma E-mail*</label>
@@ -60,8 +66,9 @@ function ContactForm({
             id="confirmEmail"
             name="confirmEmail"
             onChange={handleFormInput}
-            value={userValues.confirmEmail || ""}
+            value={user.confirmEmail || ""}
           />
+          {errors.confirmEmail && <span>{errors.confirmEmail}</span>}
         </div>
         <div className="infoPrivacy">
           <h4>INFORMATIVA PRIVACY</h4>
