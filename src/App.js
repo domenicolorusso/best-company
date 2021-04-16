@@ -11,7 +11,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Customize from "./components/Customize/Customize";
 import ContactMe from "./components/ContactMe/ContactMe";
 import Recap from "./components/Recap/Recap";
-import { useEffect } from 'react'
+
 //TODO query string
 function App() {
 

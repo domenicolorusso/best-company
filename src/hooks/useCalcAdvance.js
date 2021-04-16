@@ -19,6 +19,10 @@ import {
 export default function useCalcAdvance() {
   const dispatch = useDispatch();
   const installValues = useSelector((state) => state.install);
+  
+    useEffect(() => {
+      dispatchInitState();
+    }, []);
 
   // ------------Calcolo rata mensile --------- ////////////
 
@@ -89,7 +93,7 @@ export default function useCalcAdvance() {
     60: 0.3,
     72: 0.25,
   };
-
+  //TODO: tan e taeg variano in base a qualcosa :D
   const dispatchInitState = () => {
     dispatch(calculateFinalInstallment(ratFinale));
     dispatch(rataMensile(calcolaSingoleRate(installValues.amount)));
@@ -137,10 +141,6 @@ export default function useCalcAdvance() {
     installValues.price
   );
 
-  useEffect(() => {
-    dispatchInitState();
-  }, []);
-
   //----------Component Handler, qui vendono chiamate le funzioni -----------//
 
   function handldeAdvanceCalculation(e) {
@@ -149,13 +149,7 @@ export default function useCalcAdvance() {
     // console.log(calcolaSingoleRate(e.target.value));
 
     dispatch(rataMensile(calcolaSingoleRate(e.target.value)));
-    dispatch(
-      calculateFinalInstallment(
-        Number(
-          calcolaRataFinale(installValues.installments, installValues.price)
-        )
-      )
-    );
+    dispatch(calculateFinalInstallment(Number(calcolaRataFinale(installValues.installments, installValues.price))));
   }
 
   function handleMonthsInstallment(installNumberArray) {
