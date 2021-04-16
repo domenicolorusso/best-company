@@ -4,6 +4,7 @@ import Car from "../Car/Car";
 import ResultBox from "../ResultBox";
 import useCalcAdvance from "../../hooks/useCalcAdvance.js";
 import { currencyFormatter } from '../../utils/currencyFormatter'
+
 function Customize() {
   const section = "CUSTOMIZE";
   const [

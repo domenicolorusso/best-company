@@ -6,7 +6,7 @@ function Success({setSuccess}) {
       <div className="overlay"></div>
       <div className="successCard">
         <h1>bravissimo ✔</h1>
-        <button onClick={()=> setSuccess(false)}>X</button>
+        <button onClick={()=> setSuccess(false)}>+</button>
       </div>
     </div>
   );

@@ -522,7 +522,10 @@
 }
 
 .Success .successCard button {
-  font-size: 20px;
+  font-size: 30px;
+  color: #eceeef;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   cursor: pointer;
   background-color: transparent;
   border: none;

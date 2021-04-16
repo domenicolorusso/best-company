@@ -20,7 +20,7 @@ export default function useFormManagement() {
     confirmEmail: "",
   });
   const [isOff, setIsOff] = useState(true);
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false);
   const prefissiValidi = [
     "313",
     "320",
@@ -64,38 +64,29 @@ export default function useFormManagement() {
     "392",
     "393",
   ];
-  //  console.log(transNumber)
 
-function makeButtonEnabled(){
-  if (user.name !== ''){
-    setIsOff(false);
+
+  function makeButtonEnabled() {
+    if (user.name !== "") {
+      setIsOff(false);
+    }
+    if (user.surname !== "") {
+      setIsOff(false);
+    }
+    if (user.email !== "") {
+      setIsOff(false);
+    }
+    if (user.confirmEmail !== "") {
+      setIsOff(false);
+    }
+    if (user.telNumber !== "") {
+      setIsOff(false);
+    }
   }
-  if (user.surname !== ''){
-    setIsOff(false);
-  }
-  if (user.email !== ''){
-    setIsOff(false);
-  }
-  if (user.confirmEmail !== ''){
-    setIsOff(false);
-  }
-  if (user.telNumber !== ''){
-    setIsOff(false);
-  }
-}
 
   useEffect(() => {
     setIsOff(true);
-    makeButtonEnabled()
-    // if 
-    //   if (isValidForm(user)) {
-    //     console.log("active");
-    //     setIsOff(false);
-    //   } else {
-    //     console.log("disabled");
-    //     setIsOff(true);
-    //   }
-    // }
+    makeButtonEnabled();
   });
   const handleFormInput = (e) => {
     const { name, value } = e.target;
@@ -109,8 +100,10 @@ function makeButtonEnabled(){
     return telNumber.length > 8 && telNumber.length < 12;
   }
   function verificaPrefissi(telNumber) {
-    const transNumber = telNumber.toString().split('').slice(0,3).join('');
-    let prefissoPresente = prefissiValidi.filter((num) => transNumber.includes(num));
+    const transNumber = telNumber.toString().split("").slice(0, 3).join("");
+    let prefissoPresente = prefissiValidi.filter((num) =>
+      transNumber.includes(num)
+    );
     return prefissoPresente;
   }
 
@@ -155,17 +148,15 @@ function makeButtonEnabled(){
     if (Object.entries(isValidForm(user)).length === 0) {
       console.log("no errori");
       dispatchUser();
-      setSuccess(true)
+      setSuccess(true);
       setUser({
         name: "",
         surname: "",
         telNumber: "",
         email: "",
         confirmEmail: "",
-      })
-    } else {
-      console.log("errori");
-    }
+      });
+    } 
   };
 
   return [
@@ -177,6 +168,6 @@ function makeButtonEnabled(){
     user,
     errors,
     success,
-    setSuccess
+    setSuccess,
   ];
 }
