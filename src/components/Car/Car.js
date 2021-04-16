@@ -9,8 +9,8 @@ function Car() {
   return (
     <div className="Car">
       <img src={URL_img} alt="Best Company Logo" />
-      <div>
-        <h4>Yaris</h4>
+      <div className="carWrapper">
+        <h4 className="carName">Yaris</h4>
         <h4 className="carPrice">{`Prezzo: ${currencyFormatter(price)}`}</h4>
       </div>
     </div>

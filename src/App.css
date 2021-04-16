@@ -160,6 +160,7 @@
   font-size: 14px;
   display: inline-block;
   margin: 1rem 0;
+  color: #eceeef;
 }
 
 @media (max-width: 600px) {
@@ -191,12 +192,13 @@
           align-items: center;
 }
 
-.Car .carPrice {
+.Car .carWrapper .carPrice {
+  margin: 0;
   color: #eb964b;
 }
 
-.Car h4 {
-  margin-top: 0;
+.Car .carWrapper .carName {
+  margin: 0;
   color: black;
 }
 
