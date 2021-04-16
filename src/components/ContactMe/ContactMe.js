@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ContactForm from "./ContactForm";
+
+import Success from "../Success/Success";
 import useFormManagement from "../../hooks/useFormManagement";
 function ContactMe() {
   const section = "CONTACTME";
-  const [handleFormInput, userValues, handleSubmit, isOff,setIsOff, user, errors] = useFormManagement();
+  const [handleFormInput, userValues, handleSubmit, isOff,setIsOff, user, errors, success, setSuccess] = useFormManagement();
   return (
     <div className="ContactMe">
       <div className="generalWrapper">
@@ -17,6 +19,7 @@ function ContactMe() {
           user={user}
           errors={errors}
         />
+        {success && <Success setSuccess={setSuccess} />}
       </div>
     </div>
   );

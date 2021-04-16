@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { currencyFormatter } from '../../hooks/utils'
+import { currencyFormatter } from '../../utils/currencyFormatter'
 function DetailsTable() {
   const installValues = useSelector((state) => state.install);
   return (

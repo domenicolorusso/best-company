@@ -1,0 +1,46 @@
+.Success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-color: black;
+    z-index: 10;
+  }
+  .successCard {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    z-index: 30;
+    h1{
+      color: green;
+    }
+    button{
+      font-size: 20px;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+        
+  }
+}

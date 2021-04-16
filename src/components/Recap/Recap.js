@@ -4,7 +4,7 @@ import Car from "../Car/Car";
 import RecapDetails from "../Recap/RecapDetails.js";
 import ResultBox from "../ResultBox";
 import { useSelector } from "react-redux";
-import { currencyFormatter } from '../../hooks/utils'
+import { currencyFormatter } from '../../utils/currencyFormatter'
 function Recap() {
   const installValues = useSelector((state) => state.install);
   const section = "RECAP";

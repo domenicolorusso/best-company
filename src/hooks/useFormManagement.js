@@ -20,7 +20,7 @@ export default function useFormManagement() {
     confirmEmail: "",
   });
   const [isOff, setIsOff] = useState(true);
-
+  const [success, setSuccess] = useState(false)
   const prefissiValidi = [
     "313",
     "320",
@@ -105,11 +105,11 @@ function makeButtonEnabled(){
     });
   };
 
-  function lunghezzaNumeroTel(num) {
-    return num.length > 8 && num.length < 12;
+  function lunghezzaNumeroTel(telNumber) {
+    return telNumber.length > 8 && telNumber.length < 12;
   }
   function verificaPrefissi(telNumber) {
-    const transNumber = telNumber.toString();
+    const transNumber = telNumber.toString().split('').slice(0,3).join('');
     let prefissoPresente = prefissiValidi.filter((num) => transNumber.includes(num));
     return prefissoPresente;
   }
@@ -155,6 +155,14 @@ function makeButtonEnabled(){
     if (Object.entries(isValidForm(user)).length === 0) {
       console.log("no errori");
       dispatchUser();
+      setSuccess(true)
+      setUser({
+        name: "",
+        surname: "",
+        telNumber: "",
+        email: "",
+        confirmEmail: "",
+      })
     } else {
       console.log("errori");
     }
@@ -168,5 +176,7 @@ function makeButtonEnabled(){
     setIsOff,
     user,
     errors,
+    success,
+    setSuccess
   ];
 }
