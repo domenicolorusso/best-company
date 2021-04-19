@@ -100,11 +100,7 @@ export default function useFormManagement() {
     return telNumber.length > 8 && telNumber.length < 12;
   }
   function verificaPrefissi(telNumber) {
-    const transNumber = telNumber.toString().split("").slice(0, 3).join("");
-    let prefissoPresente = prefissiValidi.filter((num) =>
-      transNumber.includes(num)
-    );
-    return prefissoPresente;
+    return prefissiValidi.includes(telNumber.substring(0,3))
   }
 
   function isValidForm(value) {
@@ -121,7 +117,8 @@ export default function useFormManagement() {
       err.telNumber = "Inserire un numero";
     } else if (!lunghezzaNumeroTel(value.telNumber)) {
       err.telNumber = "Compreso tra 8 e 12 caratteri";
-    } else if (verificaPrefissi(value.telNumber).length === 0) {
+    } else if (!verificaPrefissi(value.telNumber)) {
+      console.log(verificaPrefissi(value.telNumber))
       err.telNumber = "Il numero non ha un prefisso valido";
     }
     if (!value.email) {

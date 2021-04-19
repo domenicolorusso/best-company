@@ -16,7 +16,7 @@ import Recap from "./components/Recap/Recap";
 function App() {
 
   ///?name=Yaris%201.5&model=GR-S%20MY18&fuel=Hybrid&am=15000&nr=24
-//  window.location.search = '?name=Yaris%201.5&model=GR-S%20MY18&fuel=Hybrid&am=15000&nr=24'
+
   return (
     <Router>
       <div className="App">
