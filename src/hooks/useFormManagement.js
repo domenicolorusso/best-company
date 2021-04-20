@@ -1,24 +1,46 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import {
-  takeName,
-  takeSurname,
-  takeTel,
-  takeEmail,
-  takeConfirmEmail,
-} from "../store/features/user/userActions";
+import { takeName, takeSurname, takeTel, takeEmail, takeConfirmEmail } from "../store/features/user/userActions";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 export default function useFormManagement() {
+
+
+
+  function lunghezzaNumeroTel(telNumber) {
+    return telNumber.length > 8 && telNumber.length < 12;
+  }
+  function verificaPrefissi(telNumber) {
+    return prefissiValidi.includes(telNumber.substring(0, 3));
+  }
+
+  
+  const userSchema = yup.object().shape({
+    name: yup.string().required("Inserisci il nome"),
+    surname: yup.string().required("Inserisci il cognome"),
+    telNumber: yup
+      .string()
+      .required("Inserisci il numero di telefono")
+      .test("isLong", "La lunghezza deve essere compresa tra 8 e 12 caratteri", (value, context) => lunghezzaNumeroTel(value))
+      .test("isValidPrefix", "Inserisci un numero con un prefisso valido", (value, context) => verificaPrefissi(value)),
+    email: yup.string().required("Inserisci email ").email("Inserisci email valida"),
+    confirmEmail: yup
+      .string()
+      .required("Inserisci email ")
+      .email("Inserisci email valida")
+      .oneOf([yup.ref("email")], "Il valore deve essere ugale al valore dell'email"),
+    });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(userSchema) });
+
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);
-  const [errors, setErrors] = useState({});
-  const [user, setUser] = useState({
-    name: "",
-    surname: "",
-    telNumber: "",
-    email: "",
-    confirmEmail: "",
-  });
   const [isOff, setIsOff] = useState(true);
   const [success, setSuccess] = useState(false);
   const prefissiValidi = [
@@ -65,106 +87,53 @@ export default function useFormManagement() {
     "393",
   ];
 
+  // function makeButtonEnabled() {
+  //   if (user.name !== "") {
+  //     setIsOff(false);
+  //   }
+  //   if (user.surname !== "") {
+  //     setIsOff(false);
+  //   }
+  //   if (user.email !== "") {
+  //     setIsOff(false);
+  //   }
+  //   if (user.confirmEmail !== "") {
+  //     setIsOff(false);
+  //   }
+  //   if (user.telNumber !== "") {
+  //     setIsOff(false);
+  //   }
+  // }
 
-  function makeButtonEnabled() {
-    if (user.name !== "") {
-      setIsOff(false);
-    }
-    if (user.surname !== "") {
-      setIsOff(false);
-    }
-    if (user.email !== "") {
-      setIsOff(false);
-    }
-    if (user.confirmEmail !== "") {
-      setIsOff(false);
-    }
-    if (user.telNumber !== "") {
-      setIsOff(false);
-    }
+  // useEffect(() => {
+  //   setIsOff(true);
+  //   makeButtonEnabled();
+  // });
+
+
+
+  function dispatchUserData(userData) {
+    dispatch(takeName(userData.name));
+    dispatch(takeSurname(userData.surname));
+    dispatch(takeTel(userData.telNumber));
+    dispatch(takeEmail(userData.email));
+    dispatch(takeConfirmEmail(userData.confirmEmail));
   }
 
-  useEffect(() => {
-    setIsOff(true);
-    makeButtonEnabled();
-  });
-  const handleFormInput = (e) => {
-    const { name, value } = e.target;
-    setUser({
-      ...user,
-      [name]: value,
-    });
-  };
-
-  function lunghezzaNumeroTel(telNumber) {
-    return telNumber.length > 8 && telNumber.length < 12;
+  function onSubmit(userData){
+    dispatchUserData(userData)
   }
-  function verificaPrefissi(telNumber) {
-    return prefissiValidi.includes(telNumber.substring(0,3))
-  }
-
-  function isValidForm(value) {
-    let err = {};
-    if (!value.name.trim()) {
-      err.name = "Inserire nome";
-    }
-    if (!value.surname.trim()) {
-      err.surname = "Inserire cognome";
-    }
-    if (!value.telNumber) {
-      err.telNumber = "Inserire numero di telefono";
-    } else if (isNaN(value.telNumber)) {
-      err.telNumber = "Inserire un numero";
-    } else if (!lunghezzaNumeroTel(value.telNumber)) {
-      err.telNumber = "Compreso tra 8 e 12 caratteri";
-    } else if (!verificaPrefissi(value.telNumber)) {
-      console.log(verificaPrefissi(value.telNumber))
-      err.telNumber = "Il numero non ha un prefisso valido";
-    }
-    if (!value.email) {
-      err.email = "Inserire email";
-    }
-    if (!value.confirmEmail) {
-      err.confirmEmail = "Inserire conferma email";
-    } else if (value.email !== value.confirmEmail) {
-      err.confirmEmail = "Il valore deve essere uguale a quello dell'email";
-    }
-    return err;
-  }
-
-  function dispatchUser() {
-    dispatch(takeName(user.name));
-    dispatch(takeSurname(user.surname));
-    dispatch(takeTel(user.telNumber));
-    dispatch(takeEmail(user.email));
-    dispatch(takeConfirmEmail(user.confirmEmail));
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrors(isValidForm(user));
-    if (Object.entries(isValidForm(user)).length === 0) {
-      console.log("no errori");
-      dispatchUser();
-      setSuccess(true);
-      setUser({
-        name: "",
-        surname: "",
-        telNumber: "",
-        email: "",
-        confirmEmail: "",
-      });
-    } 
-  };
-
-  return [
-    handleFormInput,
-    userValues,
+  return {
+    onSubmit,
+    register,
+    errors,
+    // handleFormInput,
+    // userValues,
     handleSubmit,
     isOff,
     setIsOff,
-    user,
-    errors,
+    // user,
     success,
     setSuccess,
-  ];
+  };
 }
