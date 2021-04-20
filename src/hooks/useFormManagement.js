@@ -37,7 +37,7 @@ export default function useFormManagement() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(userSchema) });
+  } = useForm({ mode: 'onBlur',resolver: yupResolver(userSchema) });
 
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);

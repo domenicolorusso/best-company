@@ -2,4 +2,4 @@
 
 Fake loan company app.
 
-Implemented with React and Redux.
+Implemented with React, SASS, Redux.
