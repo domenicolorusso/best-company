@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Btn from "../Btn/Btn";
-function ContactForm({ 
-  // handleFormInput, handleSubmit, userValues, isOff, setIsOff, section, user, 
+function ContactForm({
+  // handleFormInput, handleSubmit, userValues, isOff, setIsOff, section, user,
   isOff,
   setIsOff,
   section,
   onSubmit,
   handleSubmit,
-  errors, 
-  register}) {
+  errors,
+  register,
+}) {
 
-
-    console.log(register);
   return (
     <div className="ContactForm">
       <h4>Invia Richesta</h4>
@@ -34,7 +33,7 @@ function ContactForm({
         </div>
         <div className="formField">
           <label htmlFor="email">Indirizzo E-mail*</label>
-          <input {...register("email")} />
+          <input {...register("email")}/>
           {errors?.email && <span>{errors.email.message}</span>}
         </div>
         <div className="formField">

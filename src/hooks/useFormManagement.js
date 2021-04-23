@@ -6,9 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 export default function useFormManagement() {
-
-
-
   function lunghezzaNumeroTel(telNumber) {
     return telNumber.length > 8 && telNumber.length < 12;
   }
@@ -16,7 +13,6 @@ export default function useFormManagement() {
     return prefissiValidi.includes(telNumber.substring(0, 3));
   }
 
-  
   const userSchema = yup.object().shape({
     name: yup.string().required("Inserisci il nome"),
     surname: yup.string().required("Inserisci il cognome"),
@@ -30,19 +26,20 @@ export default function useFormManagement() {
       .string()
       .required("Inserisci email ")
       .email("Inserisci email valida")
-      .oneOf([yup.ref("email")], "Il valore deve essere ugale al valore dell'email"),
-    });
+      .oneOf([yup.ref("email")], "Il valore deve essere uguale al valore dell'email"),
+  });
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onBlur',resolver: yupResolver(userSchema) });
+  } = useForm({ mode: "onBlur", resolver: yupResolver(userSchema) });
 
   const dispatch = useDispatch();
   const userValues = useSelector((state) => state.user);
   const [isOff, setIsOff] = useState(true);
   const [success, setSuccess] = useState(false);
+
   const prefissiValidi = [
     "313",
     "320",
@@ -110,29 +107,26 @@ export default function useFormManagement() {
   //   makeButtonEnabled();
   // });
 
-
-
   function dispatchUserData(userData) {
     dispatch(takeName(userData.name));
     dispatch(takeSurname(userData.surname));
     dispatch(takeTel(userData.telNumber));
     dispatch(takeEmail(userData.email));
     dispatch(takeConfirmEmail(userData.confirmEmail));
+    setSuccess(!success);
   }
 
-  function onSubmit(userData){
-    dispatchUserData(userData)
+  function onSubmit(userData) {
+    dispatchUserData(userData);
   }
+
   return {
     onSubmit,
     register,
     errors,
-    // handleFormInput,
-    // userValues,
     handleSubmit,
     isOff,
     setIsOff,
-    // user,
     success,
     setSuccess,
   };
